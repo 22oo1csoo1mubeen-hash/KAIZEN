@@ -89,3 +89,22 @@ body {
     grid-template-columns: 1fr !important;
   }
 }
+
+/* Why Kaizen Grid */
+@media (max-width: 1100px) {
+  .why-kaizen-grid {
+    grid-template-columns: repeat(3, 1fr) !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .why-kaizen-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+@media (max-width: 500px) {
+  .why-kaizen-grid {
+    grid-template-columns: 1fr !important;
+  }
+}

@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import { fadeIn } from '../ui';
+import logo from '../../assets/Footer/Logo.png';
 
 /* =========================================================
    Navigation Links
@@ -11,9 +12,8 @@ const navLinks = [
   { label: 'Home', href: '#' },
   { label: 'Dashboard', href: '#dashboard' },
   { label: 'Features', href: '#features' },
-  { label: 'About', href: '#about' },
-  { label: 'Pricing', href: '#pricing' },
-  { label: 'Contact', href: '#contact' },
+  { label: 'About', href: '#why-kaizen' },
+  { label: 'Contact', href: '#footer' },
 ];
 
 /* =========================================================
@@ -28,23 +28,24 @@ export default function Navbar() {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
 
-      const sections = navLinks.map(link => link.label);
       let current = 'Home';
 
-      const visibleSections = sections.filter(section => {
-        if (section === 'Home') return false;
-        const element = document.getElementById(section.toLowerCase());
+      const visibleLinks = navLinks.filter(link => {
+        if (link.label === 'Home') return false;
+        const id = link.href.replace('#', '');
+        if (!id) return false;
+        const element = document.getElementById(id);
         if (!element) return false;
         const rect = element.getBoundingClientRect();
         return rect.top <= window.innerHeight / 2;
       }).sort((a, b) => {
-        const rectA = document.getElementById(a.toLowerCase())!.getBoundingClientRect();
-        const rectB = document.getElementById(b.toLowerCase())!.getBoundingClientRect();
-        return rectB.top - rectA.top; // Descending order (closest to 0 / highest top value wins)
+        const rectA = document.getElementById(a.href.replace('#', ''))!.getBoundingClientRect();
+        const rectB = document.getElementById(b.href.replace('#', ''))!.getBoundingClientRect();
+        return rectB.top - rectA.top;
       });
 
-      if (visibleSections.length > 0) {
-        current = visibleSections[0];
+      if (visibleLinks.length > 0) {
+        current = visibleLinks[0].label;
       }
       
       if (window.scrollY < 100) {
@@ -73,7 +74,7 @@ export default function Navbar() {
         zIndex: 50,
         display: 'flex',
         alignItems: 'center',
-        justifyContent: 'flex-end',
+        justifyContent: 'space-between',
         padding: scrolled ? '16px 64px' : '24px 64px',
         background: scrolled ? 'rgba(0, 0, 0, 0.4)' : 'transparent',
         backdropFilter: scrolled ? 'blur(20px)' : 'none',
@@ -82,6 +83,11 @@ export default function Navbar() {
         transition: 'all 0.3s ease',
       }}
     >
+      {/* Brand Logo - Left */}
+      <a href="#" style={{ display: 'flex', alignItems: 'center' }}>
+        <img src={logo} alt="KAIZEN Logo" style={{ height:52, width: 'auto', objectFit: 'contain' }} />
+      </a>
+
       {/* Nav Links - Center (Absolutely Positioned) */}
       <div 
         style={{ 

@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { CircleCheckBig, Target, Wallet, ArrowRight } from 'lucide-react';
 import { Badge, fadeInUp, staggerContainer } from '../ui';
@@ -58,9 +59,10 @@ function FeatureCard({
   index: number;
 }) {
   const Icon = feature.icon;
+  const [isHovered, setIsHovered] = useState(false);
 
   /* Icon-specific micro animations */
-  const iconAnimations = [
+  const iconAnimations: any[] = [
     /* Habit — subtle check pulse */
     {
       animate: { rotate: [0, -5, 5, 0], scale: [1, 1.05, 1] },
@@ -83,21 +85,22 @@ function FeatureCard({
   return (
     <motion.div
       variants={fadeInUp}
+      onHoverStart={() => setIsHovered(true)}
+      onHoverEnd={() => setIsHovered(false)}
       whileHover={{
         y: -10,
         scale: 1.02,
-        boxShadow: `inset 0 0 40px ${feature.glowColor}, inset 0 0 10px rgba(255,255,255,0.05), inset 0 1px 2px rgba(255,255,255,0.25), 0 30px 60px rgba(0,0,0,0.9)`,
       }}
       transition={{ duration: 0.35, ease: 'easeOut' }}
       style={{
         position: 'relative',
-        background: `linear-gradient(180deg, ${feature.gradientStart} 0%, rgba(255,255,255,0.02) 30%, rgba(10,10,10,0.5) 100%)`,
-        backdropFilter: 'blur(12px)',
-        WebkitBackdropFilter: 'blur(12px)',
-        border: `1px solid ${feature.borderColor}`,
-        borderTop: `1px solid ${feature.borderTopColor}`,
+        background: `linear-gradient(180deg, rgba(${feature.accentRgb},0.1) 0%, rgba(${feature.accentRgb},0.03) 15%, rgba(255,255,255,0.02) 40%, rgba(10,10,10,0.6) 100%)`,
+        backdropFilter: 'blur(16px)',
+        WebkitBackdropFilter: 'blur(16px)',
+        border: `1px solid rgba(${feature.accentRgb},0.22)`,
+        borderTop: `1px solid rgba(${feature.accentRgb},0.55)`,
         borderLeft: `1px solid rgba(255,255,255,0.1)`,
-        borderRight: `1px solid rgba(255,255,255,0.02)`,
+        borderRight: `1px solid rgba(255,255,255,0.03)`,
         borderRadius: 24,
         padding: 'clamp(32px, 3vw, 48px)',
         minHeight: 460,
@@ -105,20 +108,57 @@ function FeatureCard({
         flexDirection: 'column',
         alignItems: 'center',
         textAlign: 'center',
-        boxShadow: `inset 0 0 20px rgba(255,255,255,0.02), inset 0 1px 1px rgba(255,255,255,0.15), 0 20px 40px rgba(0,0,0,0.8)`,
+        boxShadow:
+          `0 0 20px rgba(${feature.accentRgb},0.08), ` +
+          `0 0 50px rgba(${feature.accentRgb},0.04), ` +
+          `inset 0 0 30px rgba(255,255,255,0.02), ` +
+          `inset 0 1px 2px rgba(255,255,255,0.18), ` +
+          `0 20px 50px rgba(0,0,0,0.85)`,
         cursor: 'pointer',
         overflow: 'hidden',
       }}
     >
-      {/* ── Top edge shimmer ── */}
-      <div
+      {/* ── Hover glow overlay ── */}
+      <motion.div
+        animate={{
+          opacity: isHovered ? 1 : 0,
+        }}
+        transition={{ duration: 0.35 }}
+        style={{
+          position: 'absolute',
+          inset: 0,
+          borderRadius: 24,
+          boxShadow:
+            `inset 0 0 50px rgba(${feature.accentRgb},0.1), ` +
+            `inset 0 0 15px rgba(255,255,255,0.04), ` +
+            `inset 0 1px 3px rgba(255,255,255,0.25), ` +
+            `0 0 30px rgba(${feature.accentRgb},0.15), ` +
+            `0 0 70px rgba(${feature.accentRgb},0.08), ` +
+            `0 30px 60px rgba(0,0,0,0.9)`,
+          pointerEvents: 'none',
+          zIndex: 0,
+        }}
+      />
+
+      {/* ── Animated top edge shimmer ── */}
+      <motion.div
+        animate={{
+          backgroundPosition: ['200% 0%', '-200% 0%'],
+        }}
+        transition={{
+          duration: 4,
+          repeat: Infinity,
+          ease: 'linear',
+        }}
         style={{
           position: 'absolute',
           top: 0,
-          left: '5%',
-          right: '5%',
+          left: 0,
+          right: 0,
           height: 1,
-          background: `linear-gradient(90deg, transparent, rgba(${feature.accentRgb},0.5), transparent)`,
+          background: `linear-gradient(90deg, transparent 20%, rgba(${feature.accentRgb},0.6) 40%, rgba(255,255,255,0.3) 50%, rgba(${feature.accentRgb},0.6) 60%, transparent 80%)`,
+          backgroundSize: '200% 100%',
+          zIndex: 2,
         }}
       />
 
@@ -214,6 +254,24 @@ function FeatureCard({
         }}
       />
 
+      {/* ── Breathing ambient orb behind icon ── */}
+      <motion.div
+        animate={{ opacity: [0.4, 0.7, 0.4], scale: [1, 1.15, 1] }}
+        transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut', delay: index * 0.5 }}
+        style={{
+          position: 'absolute',
+          top: '6%',
+          left: '50%',
+          transform: 'translateX(-50%)',
+          width: 160,
+          height: 160,
+          borderRadius: '50%',
+          background: `radial-gradient(circle, rgba(${feature.accentRgb},0.12) 0%, rgba(${feature.accentRgb},0.04) 40%, transparent 70%)`,
+          pointerEvents: 'none',
+          zIndex: 0,
+        }}
+      />
+
       {/* ── Soft inner ambient ── */}
       <div
         style={{
@@ -221,57 +279,82 @@ function FeatureCard({
           top: 0,
           left: 0,
           right: 0,
-          height: '50%',
-          background: `radial-gradient(ellipse at 50% 0%, rgba(${feature.accentRgb},0.06) 0%, transparent 70%)`,
+          height: '55%',
+          background: `radial-gradient(ellipse at 50% 0%, rgba(${feature.accentRgb},0.08) 0%, transparent 70%)`,
           pointerEvents: 'none',
         }}
       />
 
       {/* ── Icon Container ── */}
-      <div
+      <motion.div
+        animate={{
+          boxShadow: isHovered
+            ? `0 0 40px rgba(${feature.accentRgb},0.25), 0 0 20px rgba(${feature.accentRgb},0.15), inset 0 0 25px rgba(${feature.accentRgb},0.1), inset 0 1px 2px rgba(255,255,255,0.15), 0 8px 24px rgba(0,0,0,0.4)`
+            : `0 0 30px rgba(${feature.accentRgb},0.12), 0 0 15px rgba(${feature.accentRgb},0.08), inset 0 0 20px rgba(${feature.accentRgb},0.06), inset 0 1px 1px rgba(255,255,255,0.1), 0 8px 24px rgba(0,0,0,0.4)`,
+        }}
+        transition={{ duration: 0.35 }}
         style={{
+          position: 'relative',
+          zIndex: 10,
           width: 88,
           height: 88,
           borderRadius: 22,
-          background: `linear-gradient(145deg, rgba(${feature.accentRgb},0.1) 0%, rgba(${feature.accentRgb},0.03) 100%)`,
+          background: `linear-gradient(145deg, rgba(${feature.accentRgb},0.12) 0%, rgba(${feature.accentRgb},0.03) 100%)`,
           backdropFilter: 'blur(16px)',
-          border: `1px solid rgba(${feature.accentRgb},0.2)`,
-          borderTop: `1px solid rgba(${feature.accentRgb},0.35)`,
+          border: `1px solid rgba(${feature.accentRgb},0.25)`,
+          borderTop: `1px solid rgba(${feature.accentRgb},0.4)`,
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
           marginBottom: 32,
-          boxShadow: `0 0 30px rgba(${feature.accentRgb},0.12), 0 0 15px rgba(${feature.accentRgb},0.08), inset 0 0 20px rgba(${feature.accentRgb},0.06), inset 0 1px 1px rgba(255,255,255,0.1), 0 8px 24px rgba(0,0,0,0.4)`,
         }}
       >
         <motion.div
           animate={anim.animate}
           transition={anim.transition}
         >
-          <Icon
-            size={34}
-            strokeWidth={1.5}
-            style={{ color: feature.accent, filter: `drop-shadow(0 0 8px rgba(${feature.accentRgb},0.4))` }}
-          />
+          <motion.div
+            animate={{
+              filter: isHovered
+                ? `drop-shadow(0 0 14px rgba(${feature.accentRgb},0.7)) drop-shadow(0 0 24px rgba(${feature.accentRgb},0.3))`
+                : `drop-shadow(0 0 8px rgba(${feature.accentRgb},0.4))`,
+            }}
+            transition={{ duration: 0.35 }}
+          >
+            <Icon
+              size={34}
+              strokeWidth={1.5}
+              style={{ color: feature.accent }}
+            />
+          </motion.div>
         </motion.div>
-      </div>
+      </motion.div>
 
-      {/* ── Accent Divider ── */}
-      <div
+      {/* ── Accent Divider (glowing) ── */}
+      <motion.div
+        animate={{
+          boxShadow: isHovered
+            ? `0 0 18px rgba(${feature.accentRgb},0.5), 0 0 30px rgba(${feature.accentRgb},0.2)`
+            : `0 0 10px rgba(${feature.accentRgb},0.3)`,
+        }}
+        transition={{ duration: 0.35 }}
         style={{
+          position: 'relative',
+          zIndex: 10,
           width: 32,
           height: 2,
           borderRadius: 1,
           background: `linear-gradient(90deg, transparent, ${feature.accent}, transparent)`,
           marginBottom: 28,
-          opacity: 0.8,
-          boxShadow: `0 0 10px rgba(${feature.accentRgb},0.3)`,
+          opacity: 0.9,
         }}
       />
 
       {/* ── Description ── */}
       <p
         style={{
+          position: 'relative',
+          zIndex: 10,
           fontSize: 16,
           lineHeight: 1.7,
           fontWeight: 400,
@@ -289,69 +372,189 @@ function FeatureCard({
 
       {/* ── Arrow Button ── */}
       <motion.div
-        whileHover={{
-          scale: 1.08,
-          boxShadow: `0 0 35px rgba(${feature.accentRgb},0.35), 0 0 18px rgba(${feature.accentRgb},0.25), inset 0 1px 1px rgba(255,255,255,0.15)`,
-        }}
+        animate={
+          isHovered
+            ? {
+                scale: 1.08,
+                boxShadow: `0 0 40px rgba(${feature.accentRgb},0.4), 0 0 20px rgba(${feature.accentRgb},0.3), inset 0 1px 2px rgba(255,255,255,0.15)`,
+              }
+            : {
+                scale: 1,
+                boxShadow: `0 0 20px rgba(${feature.accentRgb},0.15), 0 0 10px rgba(${feature.accentRgb},0.08), inset 0 1px 1px rgba(255,255,255,0.08), 0 4px 12px rgba(0,0,0,0.4)`,
+              }
+        }
         transition={{ duration: 0.3, ease: 'easeOut' }}
         style={{
+          position: 'relative',
+          zIndex: 10,
           width: 50,
           height: 50,
           borderRadius: '50%',
-          background: `linear-gradient(145deg, rgba(${feature.accentRgb},0.08) 0%, rgba(255,255,255,0.02) 100%)`,
+          background: `linear-gradient(145deg, rgba(${feature.accentRgb},0.1) 0%, rgba(255,255,255,0.02) 100%)`,
           backdropFilter: 'blur(12px)',
-          border: `1px solid rgba(${feature.accentRgb},0.25)`,
-          borderTop: `1px solid rgba(${feature.accentRgb},0.4)`,
+          border: `1px solid rgba(${feature.accentRgb},0.28)`,
+          borderTop: `1px solid rgba(${feature.accentRgb},0.45)`,
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          boxShadow: `0 0 20px rgba(${feature.accentRgb},0.15), 0 0 10px rgba(${feature.accentRgb},0.08), inset 0 1px 1px rgba(255,255,255,0.08), 0 4px 12px rgba(0,0,0,0.4)`,
           cursor: 'pointer',
         }}
       >
         <motion.div
-          whileHover={{ x: 3 }}
+          animate={{ x: isHovered ? 3 : 0 }}
           transition={{ duration: 0.25 }}
         >
           <ArrowRight size={18} style={{ color: feature.accent, filter: `drop-shadow(0 0 4px rgba(${feature.accentRgb},0.4))` }} />
         </motion.div>
       </motion.div>
 
-      {/* ── Bottom edge reflection ── */}
+
+      {/* ── Border Shimmers Wrapper ── */}
       <div
         style={{
           position: 'absolute',
-          bottom: 0,
-          left: '10%',
-          right: '10%',
-          height: 1,
-          background: `linear-gradient(90deg, transparent, rgba(${feature.accentRgb},0.2), transparent)`,
+          inset: 0,
+          borderRadius: 24,
+          pointerEvents: 'none',
+          zIndex: 2,
         }}
-      />
+      >
+        {/* ── Animated bottom edge shimmer ── */}
+        <motion.div
+          animate={{
+            x: ['-100%', '200%'],
+          }}
+          transition={{
+            duration: 2.5,
+            repeat: Infinity,
+            ease: 'linear',
+            delay: index * 0.3,
+          }}
+          style={{
+            position: 'absolute',
+            bottom: -1,
+            left: 0,
+            width: '60%',
+            height: 3,
+            background: `linear-gradient(90deg, transparent, rgba(${feature.accentRgb},1), rgba(255,255,255,0.8), rgba(${feature.accentRgb},1), transparent)`,
+            borderRadius: 2,
+            boxShadow: `0 0 15px rgba(${feature.accentRgb},0.8)`,
+          }}
+        />
 
-      {/* ── Corner glows ── */}
-      <div
+        {/* ── Animated top edge shimmer ── */}
+        <motion.div
+          animate={{
+            x: ['200%', '-100%'],
+          }}
+          transition={{
+            duration: 3,
+            repeat: Infinity,
+            ease: 'linear',
+            delay: index * 0.5,
+          }}
+          style={{
+            position: 'absolute',
+            top: -1,
+            left: 0,
+            width: '50%',
+            height: 3,
+            background: `linear-gradient(90deg, transparent, rgba(${feature.accentRgb},0.8), rgba(255,255,255,0.6), rgba(${feature.accentRgb},0.8), transparent)`,
+            borderRadius: 2,
+            boxShadow: `0 0 12px rgba(${feature.accentRgb},0.6)`,
+          }}
+        />
+
+        {/* ── Animated left edge shimmer ── */}
+        <motion.div
+          animate={{
+            y: ['-100%', '200%'],
+          }}
+          transition={{
+            duration: 3.5,
+            repeat: Infinity,
+            ease: 'linear',
+            delay: index * 0.4 + 0.5,
+          }}
+          style={{
+            position: 'absolute',
+            top: 0,
+            left: -1,
+            height: '50%',
+            width: 3,
+            background: `linear-gradient(180deg, transparent, rgba(${feature.accentRgb},0.9), rgba(255,255,255,0.7), rgba(${feature.accentRgb},0.9), transparent)`,
+            borderRadius: 2,
+            boxShadow: `0 0 15px rgba(${feature.accentRgb},0.7)`,
+          }}
+        />
+
+        {/* ── Animated right edge shimmer ── */}
+        <motion.div
+          animate={{
+            y: ['200%', '-100%'],
+          }}
+          transition={{
+            duration: 4,
+            repeat: Infinity,
+            ease: 'linear',
+            delay: index * 0.6 + 1,
+          }}
+          style={{
+            position: 'absolute',
+            top: 0,
+            right: -1,
+            height: '60%',
+            width: 2,
+            background: `linear-gradient(180deg, transparent, rgba(${feature.accentRgb},0.7), rgba(255,255,255,0.5), rgba(${feature.accentRgb},0.7), transparent)`,
+            borderRadius: 1,
+            boxShadow: `0 0 10px rgba(${feature.accentRgb},0.5)`,
+          }}
+        />
+      </div>
+
+      {/* ── Corner glows (breathing) ── */}
+      <motion.div
+        animate={{
+          opacity: [0.6, 1.2, 0.6],
+          scale: [1, 1.6, 1],
+        }}
+        transition={{
+          duration: 4,
+          repeat: Infinity,
+          ease: 'easeInOut',
+          delay: index * 0.5,
+        }}
         className="pointer-events-none absolute"
         style={{
-          top: -40,
-          left: -40,
-          width: 120,
-          height: 120,
+          top: -60,
+          left: -60,
+          width: 200,
+          height: 200,
           borderRadius: '50%',
-          background: `rgba(${feature.accentRgb},0.04)`,
-          filter: 'blur(40px)',
+          background: `rgba(${feature.accentRgb},0.12)`,
+          filter: 'blur(45px)',
         }}
       />
-      <div
+      <motion.div
+        animate={{
+          opacity: [0.6, 1.2, 0.6],
+          scale: [1, 1.5, 1],
+        }}
+        transition={{
+          duration: 5,
+          repeat: Infinity,
+          ease: 'easeInOut',
+          delay: index * 0.5 + 2,
+        }}
         className="pointer-events-none absolute"
         style={{
-          bottom: -40,
-          right: -40,
-          width: 120,
-          height: 120,
+          bottom: -60,
+          right: -60,
+          width: 200,
+          height: 200,
           borderRadius: '50%',
-          background: `rgba(${feature.accentRgb},0.04)`,
-          filter: 'blur(40px)',
+          background: `rgba(${feature.accentRgb},0.12)`,
+          filter: 'blur(45px)',
         }}
       />
     </motion.div>
