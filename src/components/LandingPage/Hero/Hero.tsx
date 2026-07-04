@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { Badge, PrimaryButton, fadeIn, fadeInUp } from '../ui';
-import runnerImage from '../../assets/Hero/Object.jpg';
+import runnerImage from '../../../assets/LandingPage/Hero/Object.jpg';
 
 /* =========================================================
    Hero Section

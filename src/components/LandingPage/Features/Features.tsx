@@ -2,7 +2,8 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { CircleCheckBig, Target, Wallet, ArrowRight } from 'lucide-react';
 import { Badge, fadeInUp, staggerContainer } from '../ui';
-import runnerImage from '../../assets/Hero/Object.jpg';
+import { useNavigate } from 'react-router-dom';
+import runnerImage from '../../../assets/LandingPage/Hero/Object.jpg';
 
 /* =========================================================
    Feature Card Data
@@ -60,6 +61,7 @@ function FeatureCard({
 }) {
   const Icon = feature.icon;
   const [isHovered, setIsHovered] = useState(false);
+  const navigate = useNavigate();
 
   /* Icon-specific micro animations */
   const iconAnimations: any[] = [
@@ -87,6 +89,11 @@ function FeatureCard({
       variants={fadeInUp}
       onHoverStart={() => setIsHovered(true)}
       onHoverEnd={() => setIsHovered(false)}
+      onClick={() => {
+        if (feature.title === 'Habit Tracker') {
+          navigate('/habits');
+        }
+      }}
       whileHover={{
         y: -10,
         scale: 1.02,

@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import { fadeIn } from '../ui';
-import logo from '../../assets/Footer/Logo.png';
+import logo from '../../../assets/LandingPage/Footer/Logo.png';
 
 /* =========================================================
    Navigation Links

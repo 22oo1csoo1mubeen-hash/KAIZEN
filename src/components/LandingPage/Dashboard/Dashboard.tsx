@@ -5,7 +5,7 @@ import {
 } from 'recharts';
 import { Calendar, CheckCircle, Target, Wallet, ChevronDown } from 'lucide-react';
 import { Badge, fadeInUp } from '../ui';
-import runnerImage from '../../assets/Hero/Object.jpg';
+import runnerImage from '../../../assets/LandingPage/Hero/Object.jpg';
 
 /* =========================================================
    Data

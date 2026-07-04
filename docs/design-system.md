@@ -1,25 +1,42 @@
 # KAIZEN - Design System
 
-Version: 1.0
+Version: 2.0
 
 =========================================================
 DESIGN PHILOSOPHY
 =========================================================
 
-Kaizen is a premium productivity platform inspired by Apple, Linear and modern SaaS products.
+Kaizen is a premium productivity platform inspired by Apple, Linear, Vercel, Raycast and modern SaaS products.
 
 The interface must feel:
 
 • Premium
 • Elegant
 • Calm
-• Minimal
 • Disciplined
 • Professional
+• Minimal
+• Purposeful
 
-Avoid flashy or generic AI-generated styling.
+Avoid generic AI-generated styling.
 
-The UI should feel handcrafted.
+Every screen should feel handcrafted.
+
+=========================================================
+DESIGN PRINCIPLES
+=========================================================
+
+The implementation must preserve the approved reference designs.
+
+Do not redesign.
+
+Do not reinterpret.
+
+Do not modernize.
+
+Reference images are the visual source of truth.
+
+Accuracy is more important than creativity.
 
 =========================================================
 VISUAL IDENTITY
@@ -29,29 +46,33 @@ Theme
 
 Dark Mode Only
 
-Background:
+Primary Background
+
 Pure Black (#000000)
 
-Secondary Background:
+Secondary Background
+
 Very Dark Gray
 
-No bright backgrounds.
+Never use bright page backgrounds.
 
 =========================================================
 LAYOUT
 =========================================================
 
-Use generous whitespace.
+Large spacing.
 
-Sections must breathe.
+Large padding.
 
-Never overcrowd content.
+Generous margins.
 
-Large margins.
+Consistent alignment.
 
-Large paddings.
+Balanced compositions.
 
-Everything should feel spacious.
+Every section should breathe.
+
+Avoid overcrowding.
 
 =========================================================
 TYPOGRAPHY
@@ -63,11 +84,11 @@ Large
 
 Bold
 
+Elegant
+
 Premium
 
 Minimal
-
-Uppercase only where required.
 
 Body Text
 
@@ -75,7 +96,9 @@ Readable
 
 Soft white
 
-Never pure white paragraphs.
+Reduced opacity
+
+Never use pure white paragraphs.
 
 =========================================================
 COLORS
@@ -91,54 +114,67 @@ Soft Gray
 
 Accent Colors
 
-Emerald
-(Habits)
+Habits
 
-Coral / Red
-(Goals)
+Emerald Green
 
-Amber / Orange
-(Expenses)
+Goals
 
-Never use rainbow gradients.
+Royal Blue
 
-Never introduce random colors.
+Expenses
+
+Amber / Gold
+
+Only use the accent color belonging to the current module.
+
+Avoid random colors.
+
+Avoid rainbow gradients.
 
 =========================================================
 GLASSMORPHISM
 =========================================================
 
-Every major card should use:
+All major cards should use:
 
 • Backdrop Blur
-• Transparent dark background
+• Dark transparent background
 • Thin border
 • Soft reflections
 • Rounded corners
 
-Cards should feel like glass.
+Glass should feel subtle and premium.
+
+Never overuse blur.
 
 =========================================================
 GRADIENTS
 =========================================================
 
-Use subtle gradients only.
+Use subtle gradients.
 
-Gradients must support the design.
+Support the design.
 
-Never dominate the page.
+Never dominate it.
 
-Avoid excessive colorful gradients.
+Avoid saturated colorful gradients.
 
 =========================================================
 GLOW
 =========================================================
 
-Glow should be soft.
+Glow should be:
 
-Not neon.
+Soft
 
-Not gaming style.
+Premium
+
+Elegant
+
+Never neon.
+
+Never gaming style.
 
 Use glow only for:
 
@@ -146,11 +182,13 @@ Buttons
 
 Cards
 
-Highlights
-
 Icons
 
+Statistics
+
 Important text
+
+Highlights
 
 =========================================================
 SHADOWS
@@ -162,7 +200,7 @@ Wide
 
 Natural
 
-No hard shadows.
+Never harsh.
 
 =========================================================
 BORDER RADIUS
@@ -172,41 +210,81 @@ Large rounded corners.
 
 Modern SaaS appearance.
 
+Maintain consistency throughout the application.
+
 =========================================================
 BUTTONS
 =========================================================
 
-Rounded.
+Rounded
 
-Minimal.
+Minimal
 
-Premium.
+Premium
 
-Hover animation.
+Subtle hover animation
 
-Subtle glow.
+Soft glow
+
+Consistent sizing
 
 =========================================================
 ICONS
 =========================================================
 
-Use Lucide React.
+Primary Library
 
-Maintain consistent size.
+Lucide React
 
-Do not mix icon libraries.
+Rules
+
+Maintain consistent stroke width.
+
+Never mix icon libraries.
+
+Do not use PNG icons unless they are design assets.
+
+=========================================================
+BACKGROUND ELEMENTS
+=========================================================
+
+Use subtle blurred background icons.
+
+Low opacity.
+
+Never distract from content.
+
+Landing Page
+
+Running athlete illustration is part of the Kaizen identity.
+
+Habits Module
+
+Use blurred habit-related icons in the background.
+
+Goals Module
+
+Use blurred goal-related icons.
+
+Expenses Module
+
+Use blurred finance-related icons.
 
 =========================================================
 IMAGES
 =========================================================
 
-Use provided assets.
+Use only approved assets.
 
 Never replace custom illustrations.
 
-The running athlete illustration is part of the Kaizen identity.
+Never regenerate approved assets.
 
-Preserve it.
+Preserve proportions.
+
+Preserve lighting.
+
+Preserve glow.
 
 =========================================================
 ANIMATIONS
@@ -216,69 +294,141 @@ Use Framer Motion.
 
 Animations should feel:
 
-Slow
-
 Smooth
-
-Elegant
 
 Natural
 
-No bouncy animations.
+Elegant
 
-No excessive motion.
+Slow
 
-=========================================================
-PAGE STRUCTURE
-=========================================================
+Purposeful
 
-Landing Page
+Avoid:
 
-1. Hero
+Bouncy animations
 
-2. Dashboard
+Aggressive scaling
 
-3. Core Features
-
-4. Why Kaizen
-
-5. Footer
-
-Maintain this order.
+Flashy transitions
 
 =========================================================
-IMPLEMENTATION
+LANDING PAGE
 =========================================================
 
-Do not redesign.
+Structure
 
-Do not reinterpret.
+Hero
 
-Do not modernize.
+↓
 
-The reference images are the source of truth.
+Dashboard Preview
 
-The objective is to recreate them as faithfully as possible.
+↓
+
+Core Features
+
+↓
+
+Why Kaizen
+
+↓
+
+Footer
+
+Never change this order.
 
 =========================================================
-REUSABILITY
+APPLICATION STRUCTURE
 =========================================================
 
-Everything should become reusable.
+Habits
+
+Sidebar
+
+Top Navigation
+
+↓
+
+Today
+
+↓
+
+All Habits
+
+↓
+
+Calendar
+
+↓
+
+Achievements
+
+↓
+
+Notes
+
+↓
+
+Settings
+
+Goals
+
+(To be implemented)
+
+Expenses
+
+(To be implemented)
+
+=========================================================
+SETTINGS
+=========================================================
+
+Every application module should share the same Settings interface.
+
+Sections
+
+• Profile
+
+• Appearance
+
+• Notifications
+
+• Preferences
+
+• About
+
+=========================================================
+COMPONENT REUSE
+=========================================================
+
+Reusable components must be preferred.
+
+Examples
 
 Buttons
 
 Cards
 
-Containers
+Sidebar
 
-Animations
+Top Navbar
 
-Typography
+Search Bar
 
-Effects
+Modal
 
-Must be reusable components.
+Input
+
+Progress Ring
+
+Toggle
+
+Badge
+
+Loader
+
+Avoid duplicated implementations.
 
 =========================================================
 RESPONSIVENESS
@@ -290,7 +440,30 @@ Tablet
 
 Mobile
 
-The premium appearance must remain consistent across all screen sizes.
+Maintain spacing, typography and premium appearance across every screen size.
+
+=========================================================
+IMPLEMENTATION RULES
+=========================================================
+
+Implement the approved design as accurately as possible.
+
+Do not invent new layouts.
+
+Do not replace approved components.
+
+Preserve:
+
+• Layout
+• Typography
+• Colors
+• Glassmorphism
+• Glow
+• Shadows
+• Spacing
+• Animations
+
+Accuracy is preferred over creativity.
 
 =========================================================
 FINAL GOAL
@@ -298,6 +471,6 @@ FINAL GOAL
 
 Every visitor should feel:
 
-"This product looks like something built by a top-tier startup."
+"This looks like a premium product built by a top-tier startup."
 
-The implementation should be visually indistinguishable from the approved designs while maintaining clean, scalable React architecture.
+The implementation should be visually indistinguishable from the approved reference designs while maintaining a clean, reusable and scalable React architecture.

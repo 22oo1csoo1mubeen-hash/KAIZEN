@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Mail, ArrowRight, Heart } from 'lucide-react';
 import { fadeInUp, staggerContainer } from '../ui';
-import logo from '../../assets/Footer/Logo.png';
+import logo from '../../../assets/LandingPage/Footer/Logo.png';
 
 // Inline SVGs for brand icons removed from lucide-react
 const LinkedinIcon = ({ size = 24, color = 'currentColor', strokeWidth = 2, ...props }: any) => (

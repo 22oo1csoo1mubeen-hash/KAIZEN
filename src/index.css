@@ -58,20 +58,33 @@ body {
    ========================================================= */
 
 ::-webkit-scrollbar {
-  width: 6px;
+  width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #000000;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.15);
-  border-radius: 3px;
+  background: linear-gradient(180deg, rgba(76, 175, 80, 0.4), rgba(76, 175, 80, 0.2));
+  border-radius: 4px;
+  border: 1px solid rgba(76, 175, 80, 0.15);
+  cursor: grab;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 255, 255, 0.25);
+  background: linear-gradient(180deg, rgba(76, 175, 80, 0.6), rgba(76, 175, 80, 0.35));
+  border-color: rgba(76, 175, 80, 0.3);
+  box-shadow: 0 0 8px rgba(76, 175, 80, 0.4);
+  cursor: grab;
+}
+
+::-webkit-scrollbar-thumb:active {
+  background: linear-gradient(180deg, rgba(76, 175, 80, 0.7), rgba(76, 175, 80, 0.45));
+  border-color: rgba(76, 175, 80, 0.5);
+  box-shadow: 0 0 12px rgba(76, 175, 80, 0.6);
+  cursor: grabbing;
 }
 
 /* =========================================================

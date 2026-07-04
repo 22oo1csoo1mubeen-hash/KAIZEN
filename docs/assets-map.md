@@ -1,83 +1,74 @@
 # KAIZEN - Assets Map
 
-Version: 1.0
+Version: 2.0
 
-This document defines the location and purpose of every visual asset used in the project.
+This document defines every visual asset used throughout the KAIZEN project.
 
 Always consult this file before searching the project for assets.
 
-Never regenerate an existing asset unless explicitly instructed.
+Never regenerate an approved design unless explicitly instructed.
 
 =========================================================
-HERO SECTION
+LANDING PAGE
 =========================================================
 
-Hero Reference
+---------------------------------------------------------
+Hero
+---------------------------------------------------------
 
 Location:
-src/assets/Hero/Hero.jpg
+
+src/assets/LandingPage/Hero/
+
+Files:
+
+Hero.jpg
+Object.jpg
 
 Purpose:
-Master design reference for the Hero section.
+
+Approved Hero design reference.
 
 Contains:
 
 • Layout
 • Typography
-• Spacing
-• Button styling
-• Shadows
-• Glow
 • Gradients
-• Overall composition
+• Glow
+• Shadows
+• CTA
+• Runner Illustration
 
 Rules:
 
 Never redesign.
 
-Use this image as the visual source of truth.
+Use as the visual source of truth.
+
+Preserve runner proportions, glow and lighting.
 
 ---------------------------------------------------------
-
-Runner Illustration
+Dashboard Preview
+---------------------------------------------------------
 
 Location:
-src/assets/Hero/Object.jpg
+
+src/assets/LandingPage/Dashboard/
+
+Files:
+
+Dashboard.jpg
 
 Purpose:
 
-Main Hero Illustration.
-
-Rules:
-
-• Never replace.
-• Never regenerate.
-• Preserve glow.
-• Preserve lighting.
-• Preserve shadows.
-• Preserve proportions.
-• Preserve premium appearance.
-
-=========================================================
-DASHBOARD SECTION
-=========================================================
-
-Dashboard Reference
-
-Location:
-src/assets/Dashboard/Dashboard.jpg
-
-Purpose:
-
-Reference for Dashboard implementation.
+Landing page dashboard preview.
 
 Contains:
 
 • Glassmorphism
-• Dashboard layout
-• Cards
-• Charts
 • Statistics
+• Charts
+• Dashboard layout
 • Shadows
 • Glow
 
@@ -86,138 +77,259 @@ Rules:
 Implement as closely as possible.
 
 ---------------------------------------------------------
-
-Runner Background
+Features
+---------------------------------------------------------
 
 Location:
-src/assets/Hero/Object.jpg
+
+src/assets/LandingPage/Features/
+
+Files:
+
+Cards.jpg
 
 Purpose:
 
-Background illustration behind dashboard.
-
-Rules:
-
-Reuse Hero runner.
-
-Reduce opacity.
-
-Apply blur.
-
-Keep dashboard readable.
-
-=========================================================
-FEATURES SECTION
-=========================================================
-
-Features Reference
-
-Location:
-src/assets/Features/Cards.jpg
-
-Purpose:
-
-Reference for the three feature cards.
+Landing page feature cards.
 
 Contains:
 
-• Habits Card
-• Goals Card
-• Expenses Card
+• Habit Card
+• Goal Card
+• Expense Card
 
 Rules:
 
 Preserve:
 
 • Layout
-• Glow colors
+• Glow
+• Glass
 • Card spacing
-• Shadows
-• Glassmorphism
+• Typography
 
 ---------------------------------------------------------
-
-Runner Background
+Why Kaizen
+---------------------------------------------------------
 
 Location:
-src/assets/Hero/Object.jpg
+
+src/assets/LandingPage/Why/
+
+Files:
+
+Why.jpg
 
 Purpose:
 
-Background illustration behind feature cards.
-
-Rules:
-
-Reuse Hero runner.
-
-Reduce opacity.
-
-Apply blur.
-
-=========================================================
-WHY KAIZEN SECTION
-=========================================================
-
-Reference
-
-Location:
-src/assets/Why/Why.jgp
-
-Purpose:
-
-Visual reference for Why Kaizen section.
+Reference for the Why Kaizen section.
 
 Contains:
 
 • Heading
 • Description
-• Value cards
-• Quote section
+• Value Cards
+• Quote
 
 Rules:
 
+Do not redesign.
+
 No runner illustration.
 
-Centered layout.
-
-Preserve spacing.
-
-=========================================================
-FOOTER
-=========================================================
-
-Reference
+---------------------------------------------------------
+Footer
+---------------------------------------------------------
 
 Location:
-src/assets/Footer/Footer.jpg
+
+src/assets/LandingPage/Footer/
+
+Files:
+
+Footer.jpg
+
+Logo.png
 
 Purpose:
 
-Footer implementation.
-
-Contains:
-
-• Contact
-• Social links
-• Layout
-• Typography
-• Glass container
+Landing page footer.
 
 Rules:
 
 Implement faithfully.
 
 =========================================================
+HABITS MODULE
+=========================================================
+
+---------------------------------------------------------
+Today
+---------------------------------------------------------
+
+Location:
+
+src/assets/Habits/Today/
+
+Files:
+
+Today.png
+
+Purpose:
+
+Reference for Today's overview page.
+
+Contains:
+
+• Overview Cards
+• Today's Habits
+• Monthly Heatmap
+• Calendar Preview
+• Insights
+• Achievement Preview
+
+Rules:
+
+Implement as closely as possible.
+
+---------------------------------------------------------
+All Habits
+---------------------------------------------------------
+
+Location:
+
+src/assets/Habits/AllHabits/
+
+Files:
+
+AllHabits.png
+
+Purpose:
+
+Reference for the complete habit management page.
+
+Contains:
+
+• Habit List
+• Search
+• Filters
+• Add Habit
+• Categories
+
+---------------------------------------------------------
+Calendar
+---------------------------------------------------------
+
+Location:
+
+src/assets/Habits/Calendar/
+
+Files:
+
+Calendar.png
+
+Purpose:
+
+Reference for monthly calendar view.
+
+Contains:
+
+• Monthly Calendar
+• Navigation
+• Daily Progress
+• Completion Indicators
+
+---------------------------------------------------------
+Achievements
+---------------------------------------------------------
+
+Location:
+
+src/assets/Habits/Achievements/
+
+Files:
+
+Achievements.png
+
+Purpose:
+
+Reference for achievements page.
+
+Contains:
+
+• Badge Collection
+• Locked Badges
+• Progress
+• Streak Rewards
+
+---------------------------------------------------------
+Notes
+---------------------------------------------------------
+
+Location:
+
+src/assets/Habits/Notes/
+
+Files:
+
+Notes.png
+
+Purpose:
+
+Reference for habit notes.
+
+Contains:
+
+• Notes List
+• Filters
+• Add Note
+• Search
+
+---------------------------------------------------------
+Settings
+---------------------------------------------------------
+
+Location:
+
+src/assets/Habits/Settings/
+
+Files:
+
+Settings_Profile.png
+
+Settings_Appearance.png
+
+Settings_Notifications.png
+
+Settings_Preferences.png
+
+Settings_About.png
+
+Purpose:
+
+Reference for every settings page.
+
+Rules:
+
+Each image represents a separate settings screen.
+
+Do not merge multiple screens.
+
+=========================================================
 ICONS
 =========================================================
 
-Library:
+Primary Library:
 
 Lucide React
 
-Never use PNG icons.
+Rules:
+
+Use Lucide React for all interface icons.
 
 Never mix icon libraries.
+
+Do not use PNG icons unless explicitly provided as assets.
 
 =========================================================
 LOGO
@@ -233,74 +345,60 @@ Will be updated later.
 FONTS
 =========================================================
 
-Primary Font
+Status:
 
-(To be added later)
-
-Secondary Font
-
-(To be added later)
+To be finalized later.
 
 =========================================================
 VIDEOS
 =========================================================
 
-Location:
+Future Location:
 
 src/assets/videos/
-
-Purpose:
-
-Future hero videos and animations.
 
 =========================================================
 ANIMATIONS
 =========================================================
 
-Location:
+Future Location:
 
 src/assets/animations/
-
-Purpose:
-
-Lottie files and future animations.
 
 =========================================================
 CUSTOM SVG
 =========================================================
 
-Location:
+Future Location:
 
 src/assets/icons/
-
-Purpose:
-
-Custom SVG illustrations if required.
 
 =========================================================
 SUPPORTED IMAGE FORMATS
 =========================================================
 
-Do NOT assume PNG.
+Never assume PNG.
 
 Supported formats:
 
-• .webp
 • .png
 • .jpg
 • .jpeg
+• .webp
 • .svg
 • .avif
 
-Always use the existing extension.
+Always preserve the original extension.
 
 =========================================================
 GENERAL RULES
 =========================================================
 
-• Never search the project for assets unless necessary.
-• Read this file first.
-• Reuse existing assets.
-• Never regenerate approved assets.
-• Preserve the approved design exactly.
+• Read this file before searching for any asset.
+• Never regenerate approved designs.
+• Always reuse existing assets whenever possible.
+• Preserve approved layouts exactly.
+• Preserve spacing, typography, shadows, glow and colors.
+• Design images are implementation references only.
 • Ask before replacing any missing asset.
+• Keep Landing Page and Application assets separate.
