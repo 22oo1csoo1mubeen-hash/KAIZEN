@@ -16,17 +16,43 @@ const calendarDays = [
   [27, 28, 29, 30, 31, 0, 0],
 ];
 
-// Days with activity (green dots)
-const activeDays = new Set([2, 3, 8, 9, 10, 15, 16, 17, 18, 22, 23, 24, 25, 29, 30, 31]);
-
 // Today
-const today = 18;
+const today = 20;
+
+// Helper to match large CalendarGrid mock logic exactly
+const getDayState = (day: number) => {
+  if (day < 20) {
+    if (day % 5 === 0) return 'none'; // 0/9
+    if (day % 3 === 0) return 'some'; // 5/9
+    return 'all'; // 9/9
+  }
+  if (day === 20) return 'some'; // 7/9
+  if (day === 21) return 'none'; // 0/9
+  if (day === 22) return 'some'; // 3/9
+  if (day === 23) return 'some'; // 5/9
+  if (day === 24) return 'some'; // 8/9
+  if (day === 25) return 'all'; // 9/9
+  return 'empty'; // No data
+};
+
+const getStateColor = (state: string) => {
+  switch (state) {
+    case 'all': return '#4CAF50';
+    case 'some': return '#FF9800';
+    case 'none': return '#F44336';
+    default: return 'transparent';
+  }
+};
 
 // Previous/next month fill
 const prevMonthDays: Record<string, number> = { '0-0': 29, '0-1': 30 };
 const nextMonthDays: Record<string, number> = { '4-5': 1, '4-6': 2 };
 
-export default function MiniCalendar() {
+interface MiniCalendarProps {
+  onCalendarClick?: () => void;
+}
+
+export default function MiniCalendar({ onCalendarClick }: MiniCalendarProps) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 16 }}
@@ -38,9 +64,11 @@ export default function MiniCalendar() {
         backdropFilter: 'blur(24px)',
         WebkitBackdropFilter: 'blur(24px)',
         border: '1px solid rgba(255,255,255,0.06)',
-        boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.05), 0 20px 40px rgba(0,0,0,0.5)',
-        padding: '20px 24px',
+        boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.08), inset 0 0 20px rgba(255,255,255,0.02), 0 20px 40px rgba(0,0,0,0.4)',
+        padding: '16px 20px',
+        cursor: onCalendarClick ? 'pointer' : 'default',
       }}
+      onClick={onCalendarClick}
     >
       {/* Header */}
       <div
@@ -48,19 +76,23 @@ export default function MiniCalendar() {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
-          marginBottom: 16,
+          marginBottom: 12,
         }}
       >
-        <span
-          style={{
-            fontSize: 16,
-            fontWeight: 700,
-            color: '#ffffff',
-            letterSpacing: '0.01em',
-          }}
-        >
-          Monthly Calendar
-        </span>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+          <span
+            style={{
+              fontSize: 13,
+              fontWeight: 700,
+              color: '#ffffff',
+              letterSpacing: '0.01em',
+              whiteSpace: 'nowrap',
+            }}
+          >
+            Monthly Calendar
+          </span>
+          <Info size={12} style={{ color: 'rgba(255,255,255,0.3)' }} />
+        </div>
 
         <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
           <button
@@ -73,13 +105,13 @@ export default function MiniCalendar() {
               display: 'flex',
             }}
           >
-            <ChevronLeft size={16} />
+            <ChevronLeft size={14} />
           </button>
           
           <div style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
             <span
               style={{
-                fontSize: 14,
+                fontSize: 13,
                 fontWeight: 600,
                 color: 'rgba(255,255,255,0.8)',
               }}
@@ -98,7 +130,7 @@ export default function MiniCalendar() {
               display: 'flex',
             }}
           >
-            <ChevronRight size={16} />
+            <ChevronRight size={14} />
           </button>
         </div>
       </div>
@@ -108,19 +140,19 @@ export default function MiniCalendar() {
         style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(7, 1fr)',
-          gap: 6,
-          marginBottom: 16,
+          gap: 4,
+          marginBottom: 12,
         }}
       >
         {dayHeaders.map((d) => (
           <div
             key={d}
             style={{
-              fontSize: 12,
+              fontSize: 10,
               fontWeight: 600,
               color: 'rgba(255,255,255,0.35)',
               textAlign: 'center',
-              padding: '6px 0',
+              padding: '4px 0',
             }}
           >
             {d}
@@ -129,21 +161,21 @@ export default function MiniCalendar() {
       </div>
 
       {/* Calendar Grid */}
-      <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
         {calendarDays.map((week, wi) => (
           <div
             key={wi}
             style={{
               display: 'grid',
               gridTemplateColumns: 'repeat(7, 1fr)',
-              gap: 6,
+              gap: 4,
             }}
           >
             {week.map((day, di) => {
               const key = `${wi}-${di}`;
               const isEmpty = day === 0;
               const isToday = day === today;
-              const hasActivity = activeDays.has(day);
+              const state = getDayState(day);
               const fillDay = prevMonthDays[key] || nextMonthDays[key];
 
               if (isEmpty && fillDay) {
@@ -152,8 +184,8 @@ export default function MiniCalendar() {
                     key={di}
                     style={{
                       textAlign: 'center',
-                      padding: '8px 0',
-                      fontSize: 14,
+                      padding: '6px 0',
+                      fontSize: 13,
                       color: 'rgba(255,255,255,0.15)',
                       position: 'relative',
                     }}
@@ -172,14 +204,15 @@ export default function MiniCalendar() {
                   key={di}
                   style={{
                     textAlign: 'center',
-                    padding: '8px 0',
-                    fontSize: 14,
+                    padding: '6px 0',
+                    fontSize: 13,
                     fontWeight: isToday ? 600 : 400,
-                    color: isToday ? '#000' : 'rgba(255,255,255,0.7)',
                     position: 'relative',
-                    borderRadius: 10,
-                    background: isToday ? '#4CAF50' : 'transparent',
-                    boxShadow: isToday ? '0 0 15px rgba(76,175,80,0.4)' : 'none',
+                    borderRadius: isToday ? '50%' : 8,
+                    background: isToday ? 'rgba(76,175,80,0.1)' : 'transparent',
+                    border: isToday ? '1px solid #4CAF50' : '1px solid transparent',
+                    boxShadow: isToday ? '0 0 15px rgba(76,175,80,0.3), inset 0 0 10px rgba(76,175,80,0.1)' : 'none',
+                    color: isToday ? '#4CAF50' : 'rgba(255,255,255,0.7)',
                     cursor: 'pointer',
                     transition: 'all 0.2s',
                   }}
@@ -196,7 +229,7 @@ export default function MiniCalendar() {
                 >
                   {day}
                   {/* Activity dot */}
-                  {hasActivity && !isToday && (
+                  {state !== 'empty' && !isToday && (
                     <div
                       style={{
                         position: 'absolute',
@@ -209,11 +242,11 @@ export default function MiniCalendar() {
                     >
                       <div
                         style={{
-                          width: 4,
-                          height: 4,
+                          width: 3,
+                          height: 3,
                           borderRadius: '50%',
-                          background: '#4CAF50',
-                          boxShadow: '0 0 4px rgba(76,175,80,0.8)',
+                          background: getStateColor(state),
+                          boxShadow: `0 0 4px ${getStateColor(state)}`,
                         }}
                       />
                     </div>

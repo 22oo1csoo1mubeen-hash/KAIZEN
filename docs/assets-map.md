@@ -1,404 +1,442 @@
-# KAIZEN - Assets Map
+# KAIZEN — Assets Map
 
 Version: 2.0
 
-This document defines every visual asset used throughout the KAIZEN project.
+---
 
-Always consult this file before searching the project for assets.
+# PURPOSE
 
-Never regenerate an approved design unless explicitly instructed.
+This document defines the location and purpose of every approved design asset used throughout the project.
 
-=========================================================
-LANDING PAGE
-=========================================================
+Always consult this document before searching the project for assets.
 
----------------------------------------------------------
-Hero
----------------------------------------------------------
+Never regenerate an approved asset unless explicitly instructed.
 
-Location:
+Always use the existing asset.
 
+---
+
+# ASSET STRUCTURE
+
+```
+src/assets
+├── LandingPage
+└── Habits
+```
+
+Every future module (Goals, Expenses, etc.) should follow the same organization.
+
+---
+
+# LANDING PAGE
+
+## Hero
+
+Location
+
+```
 src/assets/LandingPage/Hero/
+```
 
-Files:
+Assets
+
+- Hero.jpg
+- Object.jpg
+
+Purpose
 
 Hero.jpg
+
+Reference implementation for:
+
+- Layout
+- Typography
+- Spacing
+- Hero composition
+- Buttons
+- Shadows
+- Glow
+- Glassmorphism
+
 Object.jpg
 
-Purpose:
+Runner illustration used in:
 
-Approved Hero design reference.
+- Hero
+- Dashboard Showcase
+- Features (background)
 
-Contains:
+Rules
 
-• Layout
-• Typography
-• Gradients
-• Glow
-• Shadows
-• CTA
-• Runner Illustration
+- Never replace
+- Never regenerate
+- Preserve proportions
+- Preserve lighting
+- Preserve glow
+- Preserve shadows
 
-Rules:
+---
 
-Never redesign.
+## Dashboard Showcase
 
-Use as the visual source of truth.
+Location
 
-Preserve runner proportions, glow and lighting.
-
----------------------------------------------------------
-Dashboard Preview
----------------------------------------------------------
-
-Location:
-
+```
 src/assets/LandingPage/Dashboard/
+```
 
-Files:
+Asset
 
-Dashboard.jpg
+- Dashboard.jpg
 
-Purpose:
+Purpose
 
-Landing page dashboard preview.
+Reference implementation for:
 
-Contains:
+- Dashboard layout
+- Statistics cards
+- Charts
+- Glassmorphism
+- Glow
+- Shadows
+- Spacing
 
-• Glassmorphism
-• Statistics
-• Charts
-• Dashboard layout
-• Shadows
-• Glow
-
-Rules:
+Rules
 
 Implement as closely as possible.
 
----------------------------------------------------------
-Features
----------------------------------------------------------
+---
 
-Location:
+## Core Features
 
+Location
+
+```
 src/assets/LandingPage/Features/
+```
 
-Files:
+Asset
 
-Cards.jpg
+- Cards.jpg
 
-Purpose:
+Purpose
 
-Landing page feature cards.
+Reference for:
 
-Contains:
-
-• Habit Card
-• Goal Card
-• Expense Card
-
-Rules:
+- Habits card
+- Goals card
+- Expenses card
 
 Preserve:
 
-• Layout
-• Glow
-• Glass
-• Card spacing
-• Typography
+- Layout
+- Card spacing
+- Glow
+- Shadows
+- Border radius
+- Glassmorphism
 
----------------------------------------------------------
-Why Kaizen
----------------------------------------------------------
+---
 
-Location:
+## Why Kaizen
 
+Location
+
+```
 src/assets/LandingPage/Why/
+```
 
-Files:
+Asset
 
-Why.jpg
+- Why.jpg
 
-Purpose:
+Purpose
 
-Reference for the Why Kaizen section.
+Reference implementation for:
 
-Contains:
+- Heading
+- Description
+- Feature cards
+- Quote section
+- Layout
+- Spacing
 
-• Heading
-• Description
-• Value Cards
-• Quote
+---
 
-Rules:
+## Footer
 
-Do not redesign.
+Location
 
-No runner illustration.
-
----------------------------------------------------------
-Footer
----------------------------------------------------------
-
-Location:
-
+```
 src/assets/LandingPage/Footer/
+```
 
-Files:
+Assets
+
+- Footer.jpg
+- Logo.png
+
+Purpose
 
 Footer.jpg
 
+Reference for:
+
+- Footer layout
+- Contact section
+- Links
+- Glass container
+- Typography
+- Spacing
+
 Logo.png
 
-Purpose:
+Official KAIZEN logo.
 
-Landing page footer.
+Use wherever required.
 
-Rules:
+Do not regenerate.
 
-Implement faithfully.
+---
 
-=========================================================
-HABITS MODULE
-=========================================================
+# HABITS MODULE
 
----------------------------------------------------------
-Today
----------------------------------------------------------
+---
 
-Location:
+## Today
 
+Location
+
+```
 src/assets/Habits/Today/
+```
 
-Files:
+Assets
+
+- Today.png
+- icons.png
+
+Purpose
 
 Today.png
 
-Purpose:
+Primary reference for:
 
-Reference for Today's overview page.
+- Sidebar
+- Top Navigation
+- Statistics cards
+- Today's Habits
+- Heatmap
+- Calendar
+- Insights
+- Achievements
+- Glassmorphism
+- Glow
+- Layout
+- Spacing
+- Component sizing
+- Premium UI
 
-Contains:
+icons.png
 
-• Overview Cards
-• Today's Habits
-• Monthly Heatmap
-• Calendar Preview
-• Insights
-• Achievement Preview
+Background decorative icons.
 
-Rules:
+Used behind the Today page.
 
-Implement as closely as possible.
+Rules
 
----------------------------------------------------------
-All Habits
----------------------------------------------------------
+- Preserve icon placement style
+- Preserve glow
+- Preserve opacity
+- Preserve blur
+- Preserve color palette
+- Do not regenerate
 
-Location:
+---
 
+## All Habits
+
+Location
+
+```
 src/assets/Habits/AllHabits/
+```
 
-Files:
+Asset
 
-AllHabits.png
+- AllHabits.png
 
-Purpose:
+Purpose
 
-Reference for the complete habit management page.
+Reference implementation for the All Habits page.
 
-Contains:
+Future implementation should preserve:
 
-• Habit List
-• Search
-• Filters
-• Add Habit
-• Categories
+- Layout
+- Search
+- Filters
+- Habit cards
+- Spacing
+- Glassmorphism
+- Glow
 
----------------------------------------------------------
-Calendar
----------------------------------------------------------
+---
 
-Location:
+## Calendar
 
+Location
+
+```
 src/assets/Habits/Calendar/
+```
 
-Files:
+Asset
 
-Calendar.png
+- Calendar.png
 
-Purpose:
+Purpose
 
-Reference for monthly calendar view.
+Reference implementation for the Calendar page.
 
-Contains:
+Preserve:
 
-• Monthly Calendar
-• Navigation
-• Daily Progress
-• Completion Indicators
+- Calendar layout
+- Cards
+- Statistics
+- Heatmaps
+- Glass effects
+- Typography
 
----------------------------------------------------------
-Achievements
----------------------------------------------------------
+---
 
-Location:
+## Achievements
 
+Location
+
+```
 src/assets/Habits/Achievements/
+```
 
-Files:
+Asset
 
-Achievements.png
+- Achievements.png
 
-Purpose:
+Purpose
 
-Reference for achievements page.
+Reference implementation for the Achievements page.
 
-Contains:
+Preserve:
 
-• Badge Collection
-• Locked Badges
-• Progress
-• Streak Rewards
+- Achievement cards
+- Progress
+- XP
+- Layout
+- Glow
+- Glassmorphism
 
----------------------------------------------------------
-Notes
----------------------------------------------------------
+---
 
-Location:
+## Notes
 
+Location
+
+```
 src/assets/Habits/Notes/
+```
 
-Files:
+Asset
 
-Notes.png
+- Notes.png
 
-Purpose:
+Purpose
 
-Reference for habit notes.
+Reference implementation for the Notes page.
 
-Contains:
+Preserve:
 
-• Notes List
-• Filters
-• Add Note
-• Search
+- Layout
+- Cards
+- Typography
+- Spacing
+- Glass styling
 
----------------------------------------------------------
-Settings
----------------------------------------------------------
+---
 
-Location:
+## Settings
 
+Location
+
+```
 src/assets/Habits/Settings/
+```
 
-Files:
+Assets
 
-Settings_Profile.png
+- Settings_Profile.png
+- Settings_Appearance.png
+- Settings_Preferences.png
+- Settings_Notifications.png
+- Settings_About.png
 
-Settings_Appearance.png
+Purpose
 
-Settings_Notifications.png
+Each asset is the approved design reference for its respective Settings subsection.
 
-Settings_Preferences.png
+Implement each screen individually while preserving:
 
-Settings_About.png
+- Layout
+- Forms
+- Cards
+- Buttons
+- Spacing
+- Glassmorphism
+- Glow
 
-Purpose:
+---
 
-Reference for every settings page.
+# ICONS
 
-Rules:
-
-Each image represents a separate settings screen.
-
-Do not merge multiple screens.
-
-=========================================================
-ICONS
-=========================================================
-
-Primary Library:
+Library
 
 Lucide React
 
-Rules:
+Rules
 
-Use Lucide React for all interface icons.
+- Never use PNG icons for UI.
+- Never mix icon libraries.
+- Maintain consistent stroke width.
 
-Never mix icon libraries.
+---
 
-Do not use PNG icons unless explicitly provided as assets.
+# SUPPORTED IMAGE FORMATS
 
-=========================================================
-LOGO
-=========================================================
+Always use the existing file extension.
 
-Status:
+Supported formats include:
 
-Not finalized.
+- .png
+- .jpg
+- .jpeg
+- .webp
+- .svg
+- .avif
 
-Will be updated later.
+Do not rename assets.
 
-=========================================================
-FONTS
-=========================================================
+Do not convert formats unless explicitly instructed.
 
-Status:
+---
 
-To be finalized later.
+# GENERAL RULES
 
-=========================================================
-VIDEOS
-=========================================================
-
-Future Location:
-
-src/assets/videos/
-
-=========================================================
-ANIMATIONS
-=========================================================
-
-Future Location:
-
-src/assets/animations/
-
-=========================================================
-CUSTOM SVG
-=========================================================
-
-Future Location:
-
-src/assets/icons/
-
-=========================================================
-SUPPORTED IMAGE FORMATS
-=========================================================
-
-Never assume PNG.
-
-Supported formats:
-
-• .png
-• .jpg
-• .jpeg
-• .webp
-• .svg
-• .avif
-
-Always preserve the original extension.
-
-=========================================================
-GENERAL RULES
-=========================================================
-
-• Read this file before searching for any asset.
-• Never regenerate approved designs.
-• Always reuse existing assets whenever possible.
-• Preserve approved layouts exactly.
-• Preserve spacing, typography, shadows, glow and colors.
-• Design images are implementation references only.
-• Ask before replacing any missing asset.
-• Keep Landing Page and Application assets separate.
+- Always read this document before searching the project.
+- Reuse existing assets.
+- Never regenerate approved assets.
+- Never replace approved assets.
+- Preserve layouts exactly.
+- Preserve spacing.
+- Preserve proportions.
+- Preserve glow.
+- Preserve glassmorphism.
+- Preserve shadows.
+- Ask before replacing any missing asset.

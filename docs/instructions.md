@@ -1,141 +1,267 @@
-# KAIZEN - AI Instructions
+# KAIZEN — AI Instructions
 
 Version: 2.0
 
-Your primary objective is to implement the requested feature as accurately as possible while minimizing token usage.
+---
 
-=========================================================
-TOKEN USAGE
-=========================================================
+# PURPOSE
 
-- Read only the files required for the current task.
-- Never scan the entire project unless explicitly requested.
-- Never search unrelated folders.
-- Never rewrite unrelated files.
-- Stop immediately after completing the requested task.
-- Do not continue implementing additional features.
+You are contributing to the KAIZEN codebase.
 
-=========================================================
-IMPLEMENTATION
-=========================================================
+Your primary objective is to produce production-quality React code while preserving the approved UI/UX exactly.
 
-- Modify only the requested component.
-- Preserve the existing folder structure.
-- Reuse existing components whenever possible.
-- Never duplicate components.
-- Prefer editing existing files over creating new ones.
-- Keep components modular and reusable.
-- Produce production-ready code.
+Read this document before modifying any file.
 
-=========================================================
-PROJECT STRUCTURE
-=========================================================
+---
 
-Always preserve the project architecture.
+# BEFORE WRITING CODE
 
-Landing Page components belong inside:
+Always read these documents first.
 
-src/components/LandingPage/
+1. docs/instructions.md
+2. docs/project-flow.md
+3. docs/design-system.md
+4. docs/assets-map.md
 
-Application components belong inside:
+Do not begin implementation until you understand all four documents.
 
-src/components/Habits/
-src/components/Goals/
-src/components/Expenses/
+---
 
-Reusable components belong inside:
+# IMPLEMENTATION PHILOSOPHY
 
-src/components/Shared/
+Implementation only.
 
-Never place components in incorrect folders.
+Do NOT redesign.
 
-=========================================================
-DESIGN
-=========================================================
+Do NOT reinterpret.
 
-Before implementing any UI:
+Do NOT modernize.
 
-Read
+The provided reference designs are the single source of truth.
 
-docs/design-system.md
+Your responsibility is to recreate them as accurately as possible.
 
-Read
+---
 
-docs/assets-map.md
+# PROJECT STRUCTURE
 
-Treat the provided reference images as the visual source of truth.
+Respect the existing folder structure.
 
-Do not redesign.
+Never reorganize folders.
 
-Do not reinterpret.
+Never rename folders.
 
-Do not modernize.
+Never move components unless explicitly instructed.
 
-Recreate the approved design as faithfully as possible.
+---
 
-=========================================================
-DEPENDENCIES
-=========================================================
+# COMPONENT RULES
+
+Always reuse existing components.
+
+Never duplicate components.
+
+Never create alternative implementations of an existing component.
+
+Keep components:
+
+- modular
+- reusable
+- maintainable
+- production ready
+
+---
+
+# FILE MODIFICATION
+
+Modify only the files required for the current task.
+
+Never rewrite unrelated files.
+
+Never touch completed sections unless explicitly instructed.
+
+Never perform project-wide refactors.
+
+---
+
+# TOKEN EFFICIENCY
+
+Minimize context usage.
+
+Read only the files required for the current task.
+
+Never scan the entire project.
+
+Always consult the documentation before searching source files.
+
+---
+
+# APPROVED TECHNOLOGIES
 
 Use only:
 
 - React
-- Vite
 - TypeScript
+- Vite
 - Tailwind CSS
 - Framer Motion
 - Lucide React
 
-Do not introduce additional libraries unless explicitly requested.
+Do not introduce additional UI libraries.
 
-=========================================================
-CODE QUALITY
-=========================================================
+Do not introduce additional animation libraries.
 
-Write clean, production-ready code.
+Do not introduce unnecessary dependencies.
 
-Avoid unnecessary abstractions.
+---
 
-Avoid deeply nested components.
+# STYLING RULES
 
-Keep files focused on a single responsibility.
+Prefer existing reusable UI.
 
-Prefer composition over duplication.
+Avoid inline styles unless absolutely necessary.
 
-=========================================================
-RESPONSES
-=========================================================
+Avoid duplicated utility classes.
 
-Keep responses concise.
+Use reusable components whenever possible.
 
-Do not explain basic React concepts.
+---
 
-Do not justify every implementation decision.
+# RESPONSIVENESS
 
-Return only what is necessary to complete the task.
+Unless explicitly instructed otherwise:
 
-=========================================================
-FILES
-=========================================================
+Develop for the primary desktop viewport only.
 
-Never modify:
+Desktop layout is always the first priority.
 
-- Approved design assets
-- Assets map
-- Design system
+Responsive refinements will be implemented later.
 
-Unless explicitly instructed.
+Do not add responsive breakpoints during normal implementation tasks.
 
-=========================================================
-FINAL RULE
-=========================================================
+---
 
-Implement only the requested feature.
+# VISUAL ACCURACY
 
-Do not make assumptions.
+The reference images are the source of truth.
 
-Do not implement future sections.
+Reproduce accurately:
 
-Do not perform unsolicited refactoring.
+- layout
+- spacing
+- proportions
+- hierarchy
+- glow
+- glassmorphism
+- blur
+- shadows
+- typography
+- border radius
+- gradients
+- animations
 
-Preserve the approved design, project architecture and coding style.
+Do not approximate when a closer implementation is possible.
+
+---
+
+# ITERATIVE REFINEMENT
+
+If the implementation does not closely match the reference:
+
+Refine.
+
+Compare.
+
+Adjust.
+
+Repeat.
+
+Do not stop after the first attempt.
+
+Continue until the implementation is visually as close as possible.
+
+---
+
+# ASSETS
+
+Never regenerate approved assets.
+
+Never replace existing assets.
+
+Always reuse assets from the documented locations.
+
+Always consult assets-map.md before searching the project.
+
+---
+
+# DYNAMIC CONTENT
+
+Unless explicitly instructed:
+
+Use placeholder data.
+
+Do not connect APIs.
+
+Do not implement backend logic.
+
+Do not add state management beyond what is necessary for the UI.
+
+Future integrations will replace placeholder content.
+
+---
+
+# ANIMATIONS
+
+Use Framer Motion.
+
+Animations should be:
+
+- smooth
+- subtle
+- premium
+- natural
+
+Avoid exaggerated animations.
+
+Avoid bouncy effects.
+
+Avoid gaming-style motion.
+
+---
+
+# PERFORMANCE
+
+Keep components lightweight.
+
+Avoid unnecessary re-renders.
+
+Avoid unnecessary dependencies.
+
+Prefer reusable logic.
+
+---
+
+# CODE QUALITY
+
+Write production-quality code.
+
+Keep components:
+
+- readable
+- modular
+- scalable
+- maintainable
+
+Avoid unnecessary abstraction.
+
+Avoid over-engineering.
+
+---
+
+# WHEN FINISHED
+
+Stop.
+
+Do not continue implementing other sections.
+
+Wait for the next task.

@@ -8,7 +8,7 @@ import runnerImage from '../../../assets/LandingPage/Hero/Object.jpg';
 
 export default function Hero() {
   return (
-    <section className="relative flex min-h-screen flex-col overflow-hidden bg-black">
+    <section className="relative flex flex-col overflow-hidden bg-black" style={{ minHeight: '100vh' }}>
       {/* ── Background Gradients ── */}
       <div className="pointer-events-none absolute inset-0">
         {/* Very subtle top ambient light */}
@@ -63,11 +63,11 @@ export default function Hero() {
           style={{
             position: 'relative',
             width: '100%',
-            maxWidth: 1440,
+            maxWidth: 1280,
             margin: '0 auto',
-            paddingLeft: '5%',
-            paddingRight: '3%',
-            paddingTop: 130,
+            paddingLeft: '4%',
+            paddingRight: '4%',
+            paddingTop: 80,
             paddingBottom: 40,
           }}
         >
@@ -79,12 +79,12 @@ export default function Hero() {
               display: 'flex',
               flexDirection: 'column',
               alignItems: 'flex-start',
-              width: '45%',
+              width: '50%',
               flexShrink: 0,
             }}
           >
             {/* Badge */}
-            <Badge delay={0.3} style={{ marginBottom: 12 }}>
+            <Badge delay={0.3} style={{ marginBottom: 10}}>
               DISCIPLINE. FOCUS. GROWTH.
             </Badge>
 
@@ -96,11 +96,11 @@ export default function Hero() {
               custom={0.5}
               className="font-display font-normal"
               style={{
-                fontSize: 'clamp(170px, 10vw, 150px)',
+                fontSize: 'clamp(180px, 8vw, 140px)',
                 lineHeight: 0.9,
                 letterSpacing: '-0.02em',
-                marginBottom: 16,
-                marginLeft: -10,
+                marginBottom: 6,
+                marginLeft: -8,
                 background: 'linear-gradient(180deg, #ffffff 20%, #999999 100%)',
                 WebkitBackgroundClip: 'text',
                 WebkitTextFillColor: 'transparent',
@@ -116,11 +116,11 @@ export default function Hero() {
               animate="visible"
               custom={0.7}
               style={{
-                fontSize: 'clamp(26px, 2.8vw, 36px)',
+                fontSize: 'clamp(18px, 2vw, 26px)',
                 fontWeight: 400,
                 letterSpacing: '-0.01em',
                 color: 'rgba(255,255,255,0.75)',
-                marginBottom: 22,
+                marginBottom: 26,
               }}
             >
               Built For Disciplined Minds.
@@ -132,12 +132,12 @@ export default function Hero() {
               initial="hidden"
               animate="visible"
               custom={0.9}
-              style={{ marginBottom: 30 }}
+              style={{ marginBottom: 50 }}
             >
-              <p style={{ fontSize: 16, lineHeight: 2.0, fontWeight: 300, color: 'rgba(255,255,255,0.65)' }}>
+              <p style={{ fontSize: 16, lineHeight: 1.5, fontWeight: 300, color: 'rgba(255,255,255,0.65)', marginBottom: 4 }}>
                 Track habits. Achieve goals. Manage expenses.
               </p>
-              <p style={{ fontSize: 16, lineHeight: 2.0, fontWeight: 300, color: 'rgba(255,255,255,0.65)' }}>
+              <p style={{ fontSize: 16, lineHeight: 1.5, fontWeight: 300, color: 'rgba(255,255,255,0.65)' }}>
                 Small improvements today, Extraordinary results tomorrow.
               </p>
             </motion.div>
@@ -160,7 +160,7 @@ export default function Hero() {
               right: 0,
               top: 0,
               bottom: 0,
-              width: '78%',
+              width: '70%',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
@@ -186,11 +186,11 @@ export default function Hero() {
               className="relative z-10"
               style={{
                 width: '100%',
-                maxWidth: 1200,
+                maxWidth: 1000,
                 objectFit: 'contain',
                 mixBlendMode: 'lighten',
-                marginTop: '3%', // margin on top to push down
-                marginRight: '2%', // margin on right to push left
+                marginTop: '3%', 
+                marginRight: '2%', 
               }}
               draggable={false}
             />

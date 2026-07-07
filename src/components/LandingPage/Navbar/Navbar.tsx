@@ -75,7 +75,7 @@ export default function Navbar() {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-between',
-        padding: scrolled ? '16px 64px' : '24px 64px',
+        padding: scrolled ? '12px 64px' : '16px 64px',
         background: scrolled ? 'rgba(0, 0, 0, 0.4)' : 'transparent',
         backdropFilter: scrolled ? 'blur(20px)' : 'none',
         WebkitBackdropFilter: scrolled ? 'blur(20px)' : 'none',
@@ -84,19 +84,20 @@ export default function Navbar() {
       }}
     >
       {/* Brand Logo - Left */}
-      <a href="#" style={{ display: 'flex', alignItems: 'center' }}>
-        <img src={logo} alt="KAIZEN Logo" style={{ height:52, width: 'auto', objectFit: 'contain' }} />
-      </a>
+      <div style={{ flex: 1, display: 'flex', justifyContent: 'flex-start' }}>
+        <a href="#" style={{ display: 'flex', alignItems: 'center' }}>
+          <img src={logo} alt="KAIZEN Logo" style={{ height: 40, width: 'auto', objectFit: 'contain' }} />
+        </a>
+      </div>
 
-      {/* Nav Links - Center (Absolutely Positioned) */}
+      {/* Nav Links - Center */}
       <div 
         style={{ 
-          position: 'absolute', 
-          left: '50%', 
-          transform: 'translateX(-50%)',
+          flex: 1,
           display: 'flex', 
+          justifyContent: 'center',
           alignItems: 'center', 
-          gap: 40 
+          gap: 32 
         }}
       >
         {navLinks.map((link) => (
@@ -135,32 +136,39 @@ export default function Navbar() {
         ))}
       </div>
 
-      {/* Get Started Button - Right */}
-      <motion.a
-        href="#"
-        whileHover={{ scale: 1.03 }}
-        whileTap={{ scale: 0.98 }}
-        style={{
-          display: 'flex',
-          alignItems: 'center',
-          gap: 10,
-          borderRadius: 9999,
-          border: '1px solid rgba(255,255,255,0.15)',
-          background: 'rgba(255,255,255,0.06)',
-          backdropFilter: 'blur(16px)',
-          WebkitBackdropFilter: 'blur(16px)',
-          padding: '10px 24px',
-          fontSize: 13,
-          fontWeight: 500,
-          color: '#ffffff',
-          textDecoration: 'none',
-          transition: 'all 0.3s',
-          boxShadow: '0 0 15px rgba(255,255,255,0.15), inset 0 1px 1px rgba(255,255,255,0.3)',
-        }}
-      >
-        Get Started
-        <ArrowRight style={{ width: 14, height: 14 }} />
-      </motion.a>
+      {/* CTA Button - Right */}
+      <div style={{ flex: 1, display: 'flex', justifyContent: 'flex-end' }}>
+        <a 
+          href="#dashboard"
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: 8,
+            padding: '12px 24px',
+            borderRadius: 100,
+            background: 'rgba(255,255,255,0.03)',
+            border: '1px solid rgba(255,255,255,0.1)',
+            color: '#ffffff',
+            fontSize: 14,
+            fontWeight: 500,
+            transition: 'all 0.3s ease',
+            cursor: 'pointer',
+            boxShadow: '0 0 15px rgba(255,255,255,0.08), inset 0 1px 1px rgba(255,255,255,0.1)',
+          }}
+          onMouseEnter={(e) => {
+            (e.currentTarget as HTMLElement).style.background = 'rgba(255,255,255,0.08)';
+            (e.currentTarget as HTMLElement).style.transform = 'scale(1.02)';
+            (e.currentTarget as HTMLElement).style.boxShadow = '0 0 24px rgba(255,255,255,0.25), inset 0 1px 1px rgba(255,255,255,0.3)';
+          }}
+          onMouseLeave={(e) => {
+            (e.currentTarget as HTMLElement).style.background = 'rgba(255,255,255,0.03)';
+            (e.currentTarget as HTMLElement).style.transform = 'scale(1)';
+            (e.currentTarget as HTMLElement).style.boxShadow = '0 0 15px rgba(255,255,255,0.08), inset 0 1px 1px rgba(255,255,255,0.1)';
+          }}
+        >
+          Get Started <ArrowRight size={16} />
+        </a>
+      </div>
     </motion.nav>
   );
 }

@@ -17,8 +17,8 @@ export default function AchievementPreview() {
         backdropFilter: 'blur(24px)',
         WebkitBackdropFilter: 'blur(24px)',
         border: '1px solid rgba(255,255,255,0.06)',
-        boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.05), 0 20px 40px rgba(0,0,0,0.5)',
-        padding: '24px 28px',
+        boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.08), inset 0 0 20px rgba(255,255,255,0.02), 0 20px 40px rgba(0,0,0,0.4)',
+        padding: '16px 20px',
         flex: 1,
         display: 'flex',
         flexDirection: 'column',
@@ -58,19 +58,19 @@ export default function AchievementPreview() {
         </span>
       </div>
 
-      {/* Empty State */}
       <div
         style={{
           display: 'flex',
           alignItems: 'center',
           gap: 20,
+          margin: 'auto 0',
         }}
       >
         <div
           style={{
-            width: 56,
-            height: 56,
-            borderRadius: 14,
+            width: 64,
+            height: 64,
+            borderRadius: 16,
             background: 'rgba(255,255,255,0.02)',
             border: '1px solid rgba(255,255,255,0.05)',
             display: 'flex',
@@ -81,7 +81,7 @@ export default function AchievementPreview() {
           }}
         >
           <Trophy
-            size={26}
+            size={32}
             style={{
               color: 'rgba(255,255,255,0.15)',
             }}
@@ -109,9 +109,6 @@ export default function AchievementPreview() {
           </div>
         </div>
       </div>
-      
-      {/* Pushes empty state down slightly or just fills space if needed */}
-      <div style={{ flex: 1 }}></div>
     </motion.div>
   );
 }

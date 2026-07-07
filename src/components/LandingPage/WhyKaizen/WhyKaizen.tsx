@@ -93,7 +93,7 @@ function ValueCard({
         borderRight: `1px solid rgba(255,255,255,0.02)`,
         borderRadius: 24,
         padding: 'clamp(28px, 2.5vw, 40px) clamp(20px, 2vw, 32px)',
-        minHeight: 340,
+        minHeight: 300,
         display: 'flex',
         flexDirection: 'column' as const,
         alignItems: 'center',
@@ -260,8 +260,8 @@ export default function WhyKaizen() {
       className="relative overflow-hidden"
       style={{
         background: '#000000',
-        paddingTop: 120,
-        paddingBottom: 120,
+        paddingTop: 80,
+        paddingBottom: 80,
         zIndex: 10,
       }}
     >

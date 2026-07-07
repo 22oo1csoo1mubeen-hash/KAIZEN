@@ -55,7 +55,7 @@ const innerCard: React.CSSProperties = {
   borderTop: '1px solid rgba(229,193,88,0.5)',
   borderLeft: '1px solid rgba(229,193,88,0.15)',
   borderRadius: 16,
-  padding: '24px',
+  padding: '20px',
   boxShadow: '0 4px 20px rgba(0,0,0,0.6)',
 };
 
@@ -173,10 +173,10 @@ export default function Dashboard() {
     <section
       id="dashboard"
       className="relative overflow-hidden"
-      style={{ 
+      style={{
         background: '#000000',
-        paddingTop: 120, 
-        paddingBottom: 120,
+        paddingTop: 80,
+        paddingBottom: 80,
         zIndex: 10
       }}
     >
@@ -193,7 +193,7 @@ export default function Dashboard() {
           alt=""
           aria-hidden="true"
           style={{
-            height: '140%',
+            height: '110%',
             objectFit: 'contain',
             mixBlendMode: 'lighten',
             transform: 'translateX(10%) translateY(-10%)',
@@ -234,14 +234,14 @@ export default function Dashboard() {
           custom={0}
           style={{ marginBottom: 48 }}
         >
-          <Badge delay={0} style={{ marginBottom: 28 }}>
+          <Badge delay={0} style={{ marginBottom: 8 }}>
             YOUR PROGRESS. VISUALIZED.
           </Badge>
 
           <h2
             className="font-display"
             style={{
-              fontSize: 'clamp(36px, 4vw, 56px)',
+              fontSize: 'clamp(70px, 3.5vw, 48px)',
               fontWeight: 400,
               lineHeight: 1.15,
               letterSpacing: '-0.02em',
@@ -278,7 +278,7 @@ export default function Dashboard() {
           custom={0.2}
           style={{
             ...glassCard,
-            padding: 'clamp(24px, 3vw, 40px)',
+            padding: 'clamp(20px, 2.5vw, 32px)',
           }}
         >
           {/* ── Top Bar ── */}
@@ -336,8 +336,8 @@ export default function Dashboard() {
             className="dashboard-grid-row1"
             style={{
               display: 'grid',
-              gap: 'clamp(12px, 1.5vw, 20px)',
-              marginBottom: 'clamp(12px, 1.5vw, 20px)',
+              gap: 'clamp(12px, 1.2vw, 16px)',
+              marginBottom: 'clamp(12px, 1.2vw, 16px)',
             }}
           >
             {/* Habits Completed */}
@@ -476,7 +476,7 @@ export default function Dashboard() {
             className="dashboard-grid-row2"
             style={{
               display: 'grid',
-              gap: 'clamp(12px, 1.5vw, 20px)',
+              gap: 'clamp(12px, 1.2vw, 16px)',
             }}
           >
             {/* Habits Overview — Bar Chart */}

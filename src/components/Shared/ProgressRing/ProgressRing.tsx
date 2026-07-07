@@ -10,6 +10,7 @@ interface ProgressRingProps {
   strokeWidth?: number;
   color?: string;
   trackColor?: string;
+  text?: string;
 }
 
 export default function ProgressRing({
@@ -18,6 +19,7 @@ export default function ProgressRing({
   strokeWidth = 6,
   color = '#4CAF50',
   trackColor = 'rgba(76,175,80,0.15)',
+  text,
 }: ProgressRingProps) {
   const radius = (size - strokeWidth) / 2;
   const circumference = radius * 2 * Math.PI;
@@ -34,35 +36,59 @@ export default function ProgressRing({
         justifyContent: 'center',
       }}
     >
-      <svg width={size} height={size} style={{ transform: 'rotate(-90deg)' }}>
+      <svg width={size} height={size} style={{ transform: 'rotate(-90deg)', overflow: 'visible' }}>
         {/* Track */}
-        <circle
+        <motion.circle
           cx={size / 2}
           cy={size / 2}
           r={radius}
-          stroke={trackColor}
+          animate={{ stroke: trackColor }}
+          transition={{ duration: 0.5 }}
           strokeWidth={strokeWidth}
           fill="transparent"
         />
-        {/* Progress */}
+        {/* Glow Layer 1 - Large Blur */}
         <motion.circle
           initial={{ strokeDashoffset: circumference }}
-          animate={{ strokeDashoffset }}
-          transition={{ duration: 1.5, delay: 0.5, ease: 'easeOut' }}
+          animate={{ strokeDashoffset, stroke: color }}
+          transition={{ duration: 0.8, ease: 'easeOut' }}
           cx={size / 2}
           cy={size / 2}
           r={radius}
-          stroke={color}
           strokeWidth={strokeWidth}
           fill="transparent"
           strokeDasharray={circumference}
           strokeLinecap="round"
-          style={{
-            filter: `drop-shadow(0 0 6px ${color}80)`,
-          }}
+          style={{ filter: 'blur(12px)', opacity: 0.7 }}
+        />
+        {/* Glow Layer 2 - Small Blur */}
+        <motion.circle
+          initial={{ strokeDashoffset: circumference }}
+          animate={{ strokeDashoffset, stroke: color }}
+          transition={{ duration: 0.8, ease: 'easeOut' }}
+          cx={size / 2}
+          cy={size / 2}
+          r={radius}
+          strokeWidth={strokeWidth}
+          fill="transparent"
+          strokeDasharray={circumference}
+          strokeLinecap="round"
+          style={{ filter: 'blur(4px)', opacity: 1 }}
+        />
+        {/* Main Progress Ring */}
+        <motion.circle
+          initial={{ strokeDashoffset: circumference }}
+          animate={{ strokeDashoffset, stroke: color }}
+          transition={{ duration: 0.8, ease: 'easeOut' }}
+          cx={size / 2}
+          cy={size / 2}
+          r={radius}
+          strokeWidth={strokeWidth}
+          fill="transparent"
+          strokeDasharray={circumference}
+          strokeLinecap="round"
         />
       </svg>
-      {/* Percentage Text */}
       <div
         style={{
           position: 'absolute',
@@ -71,7 +97,7 @@ export default function ProgressRing({
           color: '#ffffff',
         }}
       >
-        {progress}%
+        {text || `${progress}%`}
       </div>
     </div>
   );

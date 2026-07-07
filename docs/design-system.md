@@ -1,118 +1,143 @@
-# KAIZEN - Design System
+# KAIZEN — Design System
 
 Version: 2.0
 
-=========================================================
-DESIGN PHILOSOPHY
-=========================================================
+---
 
-Kaizen is a premium productivity platform inspired by Apple, Linear, Vercel, Raycast and modern SaaS products.
+# DESIGN PHILOSOPHY
 
-The interface must feel:
+KAIZEN is a premium productivity platform.
 
-• Premium
-• Elegant
-• Calm
-• Disciplined
-• Professional
-• Minimal
-• Purposeful
+The visual language is inspired by:
+
+- Apple
+- Linear
+- Arc Browser
+- Raycast
+- Modern SaaS dashboards
+
+The interface should feel:
+
+- Premium
+- Calm
+- Minimal
+- Elegant
+- Disciplined
+- Spacious
+- High-end
 
 Avoid generic AI-generated styling.
 
 Every screen should feel handcrafted.
 
-=========================================================
-DESIGN PRINCIPLES
-=========================================================
+---
 
-The implementation must preserve the approved reference designs.
+# DESIGN SOURCE OF TRUTH
 
-Do not redesign.
+The approved design reference images are the single source of truth.
 
-Do not reinterpret.
+Never redesign.
 
-Do not modernize.
+Never reinterpret.
 
-Reference images are the visual source of truth.
+Never modernize.
 
-Accuracy is more important than creativity.
+Always recreate the approved design as accurately as possible.
 
-=========================================================
-VISUAL IDENTITY
-=========================================================
+If an exact implementation is not possible using CSS, reproduce it as closely as possible.
 
-Theme
+---
 
-Dark Mode Only
+# PRIMARY VIEWPORT
+
+Until the application is fully completed, all UI must be designed for the primary desktop viewport.
+
+Browser Zoom:
+
+100%
+
+Desktop is the design baseline.
+
+Responsive layouts will be implemented after desktop development is complete.
+
+Do not introduce responsive breakpoints unless explicitly instructed.
+
+---
+
+# LAYOUT PRINCIPLES
+
+Maintain:
+
+- Consistent margins
+- Consistent spacing
+- Clear visual hierarchy
+- Large breathing space
+- Balanced composition
+
+Avoid cramped layouts.
+
+Avoid oversized layouts.
+
+Every section should feel naturally balanced.
+
+---
+
+# PAGE STRUCTURE
+
+Landing Page
+
+1. Hero
+2. Dashboard Showcase
+3. Core Features
+4. Why Kaizen
+5. Footer
+
+Habits Module
+
+1. Today
+2. All Habits
+3. Calendar
+4. Achievements
+5. Notes
+6. Settings
+
+Maintain this structure.
+
+---
+
+# COLOR SYSTEM
 
 Primary Background
 
-Pure Black (#000000)
+Pure Black
+
+#000000
 
 Secondary Background
 
 Very Dark Gray
 
-Never use bright page backgrounds.
+Cards
 
-=========================================================
-LAYOUT
-=========================================================
+Transparent Black
 
-Large spacing.
+Glass surface
 
-Large padding.
-
-Generous margins.
-
-Consistent alignment.
-
-Balanced compositions.
-
-Every section should breathe.
-
-Avoid overcrowding.
-
-=========================================================
-TYPOGRAPHY
-=========================================================
-
-Headings
-
-Large
-
-Bold
-
-Elegant
-
-Premium
-
-Minimal
-
-Body Text
-
-Readable
-
-Soft white
-
-Reduced opacity
-
-Never use pure white paragraphs.
-
-=========================================================
-COLORS
-=========================================================
-
-Primary
+Primary Text
 
 White
 
-Secondary
+Secondary Text
 
 Soft Gray
 
-Accent Colors
+Muted Text
+
+Gray
+
+---
+
+# ACCENT COLORS
 
 Habits
 
@@ -120,79 +145,95 @@ Emerald Green
 
 Goals
 
-Royal Blue
+Coral / Red
 
 Expenses
 
-Amber / Gold
+Amber / Orange
 
-Only use the accent color belonging to the current module.
+Use accent colors consistently.
 
-Avoid random colors.
+Do not introduce additional accent colors.
 
-Avoid rainbow gradients.
+---
 
-=========================================================
-GLASSMORPHISM
-=========================================================
+# GLASSMORPHISM
 
-All major cards should use:
+All major containers should use:
 
-• Backdrop Blur
-• Dark transparent background
-• Thin border
-• Soft reflections
-• Rounded corners
+- Backdrop Blur
+- Transparent dark background
+- Thin border
+- Soft reflections
+- Slight transparency
 
-Glass should feel subtle and premium.
+Cards should appear like premium glass.
 
-Never overuse blur.
+Avoid completely flat containers.
 
-=========================================================
-GRADIENTS
-=========================================================
+---
 
-Use subtle gradients.
+# BORDERS
 
-Support the design.
+Use subtle borders.
 
-Never dominate it.
+Never use thick borders.
 
-Avoid saturated colorful gradients.
+Border opacity should remain low.
 
-=========================================================
-GLOW
-=========================================================
+Borders should separate surfaces without becoming distracting.
 
-Glow should be:
+---
 
-Soft
+# GLOW
 
-Premium
+Glow is one of KAIZEN's strongest visual identities.
 
-Elegant
+Glow should always be:
 
-Never neon.
+- Soft
+- Elegant
+- Diffused
+- Natural
 
-Never gaming style.
+Never use neon gaming-style glow.
 
-Use glow only for:
+---
 
-Buttons
+## Green Glow
 
-Cards
+Used for:
 
-Icons
+- Habits
+- Success
+- Progress
+- Completion
 
-Statistics
+---
 
-Important text
+## Orange Glow
 
-Highlights
+Used for:
 
-=========================================================
-SHADOWS
-=========================================================
+- Fire
+- Streaks
+- XP
+- Motivation
+
+Fire icons should always use orange glow.
+
+---
+
+## White Glow
+
+Used sparingly for:
+
+- Hero image
+- Important highlights
+
+---
+
+# SHADOWS
 
 Soft
 
@@ -200,277 +241,258 @@ Wide
 
 Natural
 
-Never harsh.
+Low opacity.
 
-=========================================================
-BORDER RADIUS
-=========================================================
+Never use harsh shadows.
 
-Large rounded corners.
+---
 
-Modern SaaS appearance.
+# BACKGROUND
 
-Maintain consistency throughout the application.
+Background is never plain black.
 
-=========================================================
-BUTTONS
-=========================================================
+Large blurred decorative icons should appear throughout supported pages.
 
-Rounded
+Characteristics:
 
-Minimal
+- Low opacity
+- Strong blur
+- Large scale
+- Random placement
+- Different sizes
+- Some partially cropped
+- Fade naturally into background
+
+They provide atmosphere without distracting from content.
+
+---
+
+# ICONOGRAPHY
+
+Use Lucide React.
+
+Maintain consistent stroke weight.
+
+Do not mix icon libraries.
+
+Icons inside cards should use soft glow matching their accent color.
+
+---
+
+# TYPOGRAPHY
+
+Headings
+
+Large
+
+Bold
 
 Premium
 
-Subtle hover animation
+Readable
+
+Body
+
+Soft white
+
+Comfortable line spacing
+
+Never use pure white paragraphs.
+
+---
+
+# BUTTONS
+
+Rounded
+
+Glass appearance
 
 Soft glow
 
-Consistent sizing
+Elegant hover animation
 
-=========================================================
-ICONS
-=========================================================
+Consistent padding
 
-Primary Library
+No oversized buttons.
 
-Lucide React
+---
 
-Rules
+# INPUTS
 
-Maintain consistent stroke width.
+Dark background
 
-Never mix icon libraries.
+Thin borders
 
-Do not use PNG icons unless they are design assets.
+Rounded corners
 
-=========================================================
-BACKGROUND ELEMENTS
-=========================================================
+Subtle focus glow
 
-Use subtle blurred background icons.
+Consistent height
 
-Low opacity.
+---
 
-Never distract from content.
+# CARDS
 
-Landing Page
+Every card should have:
 
-Running athlete illustration is part of the Kaizen identity.
+- Glassmorphism
+- Rounded corners
+- Thin borders
+- Soft glow
+- Consistent padding
 
-Habits Module
+Maintain identical corner radius throughout the application.
 
-Use blurred habit-related icons in the background.
+---
 
-Goals Module
+# SPACING
 
-Use blurred goal-related icons.
+Spacing should feel intentional.
 
-Expenses Module
+Maintain consistent spacing between:
 
-Use blurred finance-related icons.
+- headings
+- paragraphs
+- cards
+- grids
+- buttons
+- sections
 
-=========================================================
-IMAGES
-=========================================================
+Avoid random spacing values.
 
-Use only approved assets.
+---
 
-Never replace custom illustrations.
+# GRIDS
 
-Never regenerate approved assets.
+Cards should align cleanly.
 
-Preserve proportions.
+Equal spacing.
 
-Preserve lighting.
+Balanced proportions.
 
-Preserve glow.
+No irregular layouts.
 
-=========================================================
-ANIMATIONS
-=========================================================
+---
+
+# ANIMATIONS
 
 Use Framer Motion.
 
 Animations should feel:
 
-Smooth
+- Smooth
+- Slow
+- Elegant
+- Premium
 
-Natural
+Never use:
 
-Elegant
+- Bounce
+- Overshoot
+- Aggressive easing
 
-Slow
+Prefer subtle fade, slide and scale animations.
 
-Purposeful
+---
 
-Avoid:
+# MICRO INTERACTIONS
 
-Bouncy animations
+Hover states should be subtle.
 
-Aggressive scaling
+Examples:
 
-Flashy transitions
+- Slight glow increase
+- Slight lift
+- Slight brightness
+- Smooth transitions
 
-=========================================================
-LANDING PAGE
-=========================================================
+Avoid excessive movement.
 
-Structure
+---
 
-Hero
+# SCROLLING
 
-↓
+Use internal scrolling where appropriate.
 
-Dashboard Preview
+Avoid unnecessary page scrolling.
 
-↓
+Large data sections should scroll internally.
 
-Core Features
+The overall page should remain stable.
 
-↓
+---
 
-Why Kaizen
+# DYNAMIC CONTENT
 
-↓
+Current implementations use placeholder data.
 
-Footer
+Future backend integration will replace:
 
-Never change this order.
+- Habits
+- Goals
+- Expenses
+- Heatmaps
+- Calendars
+- Achievements
+- Insights
 
-=========================================================
-APPLICATION STRUCTURE
-=========================================================
+UI should already be prepared for dynamic content.
 
-Habits
+---
 
-Sidebar
+# REUSABILITY
 
-Top Navigation
+Build reusable components whenever possible.
 
-↓
+Examples:
 
-Today
-
-↓
-
-All Habits
-
-↓
-
-Calendar
-
-↓
-
-Achievements
-
-↓
-
-Notes
-
-↓
-
-Settings
-
-Goals
-
-(To be implemented)
-
-Expenses
-
-(To be implemented)
-
-=========================================================
-SETTINGS
-=========================================================
-
-Every application module should share the same Settings interface.
-
-Sections
-
-• Profile
-
-• Appearance
-
-• Notifications
-
-• Preferences
-
-• About
-
-=========================================================
-COMPONENT REUSE
-=========================================================
-
-Reusable components must be preferred.
-
-Examples
-
-Buttons
-
-Cards
-
-Sidebar
-
-Top Navbar
-
-Search Bar
-
-Modal
-
-Input
-
-Progress Ring
-
-Toggle
-
-Badge
-
-Loader
+- Cards
+- Buttons
+- Inputs
+- Badges
+- Search Bars
+- Progress Components
+- Empty States
+- Modals
 
 Avoid duplicated implementations.
 
-=========================================================
-RESPONSIVENESS
-=========================================================
+---
 
-Desktop First
+# VISUAL QUALITY CHECKLIST
 
-Tablet
+Before considering a section complete, verify:
 
-Mobile
+✓ Layout matches the reference
 
-Maintain spacing, typography and premium appearance across every screen size.
+✓ Spacing matches the reference
 
-=========================================================
-IMPLEMENTATION RULES
-=========================================================
+✓ Proportions match the reference
 
-Implement the approved design as accurately as possible.
+✓ Glassmorphism matches the reference
 
-Do not invent new layouts.
+✓ Glow matches the reference
 
-Do not replace approved components.
+✓ Shadows match the reference
 
-Preserve:
+✓ Blur matches the reference
 
-• Layout
-• Typography
-• Colors
-• Glassmorphism
-• Glow
-• Shadows
-• Spacing
-• Animations
+✓ Typography matches the reference
 
-Accuracy is preferred over creativity.
+✓ Animations feel premium
 
-=========================================================
-FINAL GOAL
-=========================================================
+✓ Browser zoom is 100%
+
+✓ Desktop layout is polished
+
+If any item fails, continue refining until the implementation is visually indistinguishable from the approved design.
+
+---
+
+# FINAL OBJECTIVE
 
 Every visitor should feel:
 
-"This looks like a premium product built by a top-tier startup."
+"This looks like software built by a top-tier startup."
 
-The implementation should be visually indistinguishable from the approved reference designs while maintaining a clean, reusable and scalable React architecture.
+Every implemented screen should be nearly indistinguishable from its approved design while maintaining clean, scalable, production-quality React architecture.

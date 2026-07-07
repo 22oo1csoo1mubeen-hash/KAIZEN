@@ -23,14 +23,14 @@ function LandingPage() {
   }, [location]);
 
   return (
-    <>
+    <div style={{ zoom: 0.9 }}>
       <Navbar />
       <Hero />
       <Dashboard />
       <Features />
       <WhyKaizen />
       <Footer />
-    </>
+    </div>
   );
 }
 

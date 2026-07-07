@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Search, Bell, ChevronDown } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
+import iconsBg from '../../../assets/Habits/Today/icons.png';
 
 /* =========================================================
    Top Navigation Bar
@@ -27,27 +28,44 @@ export default function TopNavbar() {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-between',
-        padding: '0 48px',
-        height: 72,
+        padding: '0 20px',
+        height: 56,
         borderBottom: '1px solid rgba(255,255,255,0.04)',
-        background: 'rgba(10,10,10,0.8)',
-        backdropFilter: 'blur(20px)',
-        WebkitBackdropFilter: 'blur(20px)',
+        background: 'rgba(20,20,20,0.4)',
+        backdropFilter: 'blur(24px)',
+        WebkitBackdropFilter: 'blur(24px)',
         position: 'sticky',
-        top: 16,
+        top: 0,
         zIndex: 50,
       }}
     >
+      {/* Background Icons */}
+      <div
+        style={{
+          position: 'absolute',
+          inset: 0,
+          backgroundImage: `url(${iconsBg})`,
+          backgroundSize: '1000px',
+          backgroundRepeat: 'repeat',
+          opacity: 0.04,
+          pointerEvents: 'none',
+          zIndex: 0,
+          filter: 'blur(10px) drop-shadow(0 0 10px rgba(76, 175, 80, 0.25)) drop-shadow(0 0 3px rgba(255, 255, 255, 0.1))',
+        }}
+      />
+
       {/* Left — Nav Links Container */}
       <nav 
         style={{ 
           display: 'flex', 
+          position: 'relative',
+          zIndex: 1,
           alignItems: 'center', 
           background: 'rgba(20,20,20,0.4)',
           border: '1px solid rgba(255,255,255,0.06)',
           borderRadius: 32,
-          padding: '6px 8px',
-          gap: 6,
+          padding: '4px 6px',
+          gap: 4,
           boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.02)',
         }}
       >
@@ -65,13 +83,13 @@ export default function TopNavbar() {
               }}
               style={{
                 position: 'relative',
-                fontSize: 14,
+                fontSize: 12,
                 fontWeight: isActive ? 600 : 500,
                 color: isActive ? '#ffffff' : 'rgba(255,255,255,0.5)',
                 background: 'transparent',
                 border: 'none',
                 borderRadius: 24,
-                padding: '10px 24px',
+                padding: '6px 14px',
                 cursor: 'pointer',
                 transition: 'color 0.2s ease',
               }}
@@ -110,7 +128,7 @@ export default function TopNavbar() {
       </nav>
 
       {/* Right — Actions */}
-      <div style={{ display: 'flex', alignItems: 'center', gap: 20 }}>
+      <div style={{ display: 'flex', position: 'relative', zIndex: 1, alignItems: 'center', gap: 20 }}>
         {/* Search */}
         <button
           style={{
@@ -118,9 +136,9 @@ export default function TopNavbar() {
             border: '1px solid rgba(255,255,255,0.05)',
             color: 'rgba(255,255,255,0.6)',
             cursor: 'pointer',
-            padding: 8,
+            padding: 6,
             display: 'flex',
-            borderRadius: 12,
+            borderRadius: 10,
             transition: 'all 0.2s',
           }}
           onMouseEnter={(e) => {
@@ -132,7 +150,7 @@ export default function TopNavbar() {
               'rgba(255,255,255,0.4)';
           }}
         >
-          <Search size={18} />
+          <Search size={16} />
         </button>
 
         {/* Notifications */}
@@ -142,9 +160,9 @@ export default function TopNavbar() {
             border: '1px solid rgba(255,255,255,0.05)',
             color: 'rgba(255,255,255,0.6)',
             cursor: 'pointer',
-            padding: 8,
+            padding: 6,
             display: 'flex',
-            borderRadius: 12,
+            borderRadius: 10,
             position: 'relative',
             transition: 'all 0.2s',
           }}
@@ -157,15 +175,15 @@ export default function TopNavbar() {
               'rgba(255,255,255,0.4)';
           }}
         >
-          <Bell size={18} />
+          <Bell size={16} />
           {/* Notification dot */}
           <div
             style={{
               position: 'absolute',
-              top: 5,
-              right: 5,
-              width: 7,
-              height: 7,
+              top: 4,
+              right: 4,
+              width: 6,
+              height: 6,
               borderRadius: '50%',
               background: '#4CAF50',
               border: '1.5px solid #000',
@@ -178,9 +196,9 @@ export default function TopNavbar() {
           style={{
             display: 'flex',
             alignItems: 'center',
-            gap: 10,
+            gap: 8,
             cursor: 'pointer',
-            padding: '6px 12px',
+            padding: '4px 8px',
             borderRadius: 20,
             background: 'rgba(255,255,255,0.03)',
             border: '1px solid rgba(255,255,255,0.05)',
@@ -196,8 +214,8 @@ export default function TopNavbar() {
         >
           <div
             style={{
-              width: 28,
-              height: 28,
+              width: 24,
+              height: 24,
               borderRadius: '50%',
               background:
                 'linear-gradient(135deg, rgba(76,175,80,0.4), rgba(76,175,80,0.15))',
@@ -205,7 +223,7 @@ export default function TopNavbar() {
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              fontSize: 13,
+              fontSize: 12,
               fontWeight: 600,
               color: '#4CAF50',
             }}
@@ -213,7 +231,7 @@ export default function TopNavbar() {
             M
           </div>
           <ChevronDown
-            size={16}
+            size={14}
             style={{ color: 'rgba(255,255,255,0.5)' }}
           />
         </div>

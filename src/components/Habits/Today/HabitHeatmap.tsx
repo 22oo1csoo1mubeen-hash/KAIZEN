@@ -41,8 +41,8 @@ export default function HabitHeatmap() {
         backdropFilter: 'blur(24px)',
         WebkitBackdropFilter: 'blur(24px)',
         border: '1px solid rgba(255,255,255,0.06)',
-        boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.05), 0 20px 40px rgba(0,0,0,0.5)',
-        padding: '24px 28px',
+        boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.08), inset 0 0 20px rgba(255,255,255,0.02), 0 20px 40px rgba(0,0,0,0.4)',
+        padding: '16px 20px',
       }}
     >
       {/* Header */}
@@ -51,14 +51,14 @@ export default function HabitHeatmap() {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
-          marginBottom: 20,
+          marginBottom: 16,
         }}
       >
-        <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-          <span style={{ fontSize: 16, fontWeight: 600, color: '#ffffff' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+          <span style={{ fontSize: 13, fontWeight: 600, color: '#ffffff', whiteSpace: 'nowrap' }}>
             Habit Heatmap
           </span>
-          <Info size={14} style={{ color: 'rgba(255,255,255,0.3)' }} />
+          <Info size={12} style={{ color: 'rgba(255,255,255,0.3)' }} />
         </div>
         <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
           <button
@@ -71,11 +71,11 @@ export default function HabitHeatmap() {
               display: 'flex',
             }}
           >
-            <ChevronLeft size={16} />
+            <ChevronLeft size={14} />
           </button>
           <span
             style={{
-              fontSize: 14,
+              fontSize: 13,
               fontWeight: 500,
               color: 'rgba(255,255,255,0.7)',
             }}
@@ -92,7 +92,7 @@ export default function HabitHeatmap() {
               display: 'flex',
             }}
           >
-            <ChevronRight size={16} />
+            <ChevronRight size={14} />
           </button>
         </div>
       </div>
@@ -103,15 +103,15 @@ export default function HabitHeatmap() {
           style={{
             display: 'flex',
             flexDirection: 'column',
-            gap: 12, // Increased gap
-            marginTop: 28, // aligns with the grid below column headers
+            gap: 8, // Decreased gap
+            marginTop: 22, // aligns with the grid below column headers
           }}
         >
           {weeks.map((w) => (
             <div
               key={w}
               style={{
-                fontSize: 11,
+                fontSize: 10,
                 fontWeight: 500,
                 color: 'rgba(255,255,255,0.35)',
                 flex: 1, // Let flex handle the height alignment
@@ -131,15 +131,15 @@ export default function HabitHeatmap() {
             style={{
               display: 'grid',
               gridTemplateColumns: 'repeat(7, 1fr)',
-              gap: 12, // Increased gap
-              marginBottom: 12,
+              gap: 8, // Decreased gap
+              marginBottom: 8,
             }}
           >
             {days.map((d) => (
               <div
                 key={d}
                 style={{
-                  fontSize: 11,
+                  fontSize: 10,
                   fontWeight: 500,
                   color: 'rgba(255,255,255,0.35)',
                   textAlign: 'center',
@@ -151,14 +151,14 @@ export default function HabitHeatmap() {
           </div>
 
           {/* Grid Cells */}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
             {heatmapData.map((week, wi) => (
               <div
                 key={wi}
                 style={{
                   display: 'grid',
                   gridTemplateColumns: 'repeat(7, 1fr)',
-                  gap: 12, // Increased gap
+                  gap: 8, // Decreased gap
                 }}
               >
                 {week.map((level, di) => {
@@ -169,10 +169,10 @@ export default function HabitHeatmap() {
                         aspectRatio: '1',
                         borderRadius: 6,
                         background: colors[level],
-                        border: '1px solid rgba(255,255,255,0.05)',
+                        border: '1px solid rgba(255,255,255,0.08)',
                         transition: 'all 0.2s ease',
                         cursor: 'pointer',
-                        boxShadow: level > 0 ? `0 0 8px ${colors[level]}20` : 'none', // Softer glow
+                        boxShadow: level > 0 ? `0 0 12px ${colors[level]}40` : 'none',
                       }}
                       onMouseEnter={(e) => {
                         (e.currentTarget as HTMLElement).style.transform = 'scale(1.1)';
@@ -197,26 +197,26 @@ export default function HabitHeatmap() {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'flex-end',
-          gap: 12,
-          marginTop: 20,
+          gap: 10,
+          marginTop: 16,
         }}
       >
-        <span style={{ fontSize: 11, color: 'rgba(255,255,255,0.4)' }}>Less</span>
+        <span style={{ fontSize: 10, color: 'rgba(255,255,255,0.4)' }}>Less</span>
         <div style={{ display: 'flex', gap: 6 }}>
           {[0, 1, 2, 3, 4].map((l) => (
             <div
               key={l}
               style={{
-                width: 12,
-                height: 12,
-                borderRadius: 3,
+                width: 10,
+                height: 10,
+                borderRadius: 2,
                 background: colors[l],
                 border: '1px solid rgba(255,255,255,0.05)',
               }}
             />
           ))}
         </div>
-        <span style={{ fontSize: 11, color: 'rgba(255,255,255,0.4)' }}>More</span>
+        <span style={{ fontSize: 10, color: 'rgba(255,255,255,0.4)' }}>More</span>
       </div>
     </motion.div>
   );

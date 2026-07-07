@@ -1,252 +1,372 @@
-# KAIZEN - Project Flow
+# KAIZEN — Project Flow
 
 Version: 2.0
 
-=========================================================
-PROJECT OVERVIEW
-=========================================================
+---
 
-KAIZEN consists of two independent parts.
+# PROJECT OVERVIEW
 
-1. Landing Page
+KAIZEN is a premium productivity platform focused on helping users build discipline through:
 
-A premium marketing website that introduces the product.
+- Habit Tracking
+- Goal Tracking
+- Expense Tracking
 
-2. Application
+The application follows a modern premium SaaS design language inspired by Apple, Linear and world-class startup products.
 
-The authenticated productivity application where users manage Habits, Goals and Expenses.
+Every section is implemented by faithfully recreating the approved reference designs.
 
-Both parts must share the same visual identity.
+The reference designs are the single source of truth.
 
-=========================================================
-SOURCE OF TRUTH
-=========================================================
+---
 
-The approved reference images are the single source of truth.
+# DEVELOPMENT STRATEGY
 
-Do NOT:
+Development is divided into phases.
 
-• Redesign
-• Reinterpret
-• Modernize
-• Simplify
-• Improve visually
+Each completed section becomes locked.
 
-Your responsibility is implementation only.
+Completed sections should not be redesigned unless explicitly instructed.
 
-=========================================================
-IMPLEMENTATION PRIORITY
-=========================================================
+Implementation always follows this order:
 
-1. Pixel-perfect recreation
-2. Clean React architecture
-3. Reusable components
-4. Responsive behaviour
-5. Smooth Framer Motion animations
+1. Pixel-perfect implementation
+2. Layout refinement
+3. Desktop polish
+4. Component cleanup
+5. Responsive optimization
+6. Backend integration
 
-=========================================================
-LANDING PAGE
-=========================================================
+Never skip this order.
 
-Landing Page Structure
+---
 
-Hero
+# CURRENT PROJECT STATUS
 
-↓
+## Landing Page
 
-Dashboard Showcase
+Status:
+Completed ✅
 
-↓
+Sections completed:
 
-Core Features
+- Hero
+- Dashboard Showcase
+- Core Features
+- Why Kaizen
+- Footer
 
-↓
+Current state:
 
-Why Kaizen
+- Desktop layout finalized
+- Visual implementation finalized
+- Spacing refined
+- Positioning refined
+- 100% browser zoom optimized
+- Primary desktop viewport calibrated
 
-↓
+Landing Page is considered LOCKED.
 
-Footer
+Do not redesign.
 
-Status
+Do not modify unless explicitly instructed.
 
-Completed.
+---
 
-Unless explicitly instructed,
+## Habits Module
 
-do not modify any Landing Page section.
+Status:
+In Progress 🚧
 
-=========================================================
-APPLICATION STRUCTURE
-=========================================================
+Completed sections:
 
-Application Structure
+✅ Today
 
-Habits
+Implemented:
 
-↓
+- Sidebar
+- Top Navigation
+- Greeting Header
+- Statistics Cards
+- Habit Heatmap
+- Monthly Calendar
+- Today's Habits
+- Insights
+- Achievements Preview
+- Background UI
+- Glassmorphism
+- Glow
+- Premium desktop layout
 
-Today
+Current state:
 
-↓
+- Desktop layout finalized
+- Optimized for primary desktop viewport
+- 100% browser zoom calibrated
+- Internal scrolling implemented
+- Placeholder data used throughout
+- Dynamic sections prepared for future backend integration
 
-All Habits
+Today page is considered LOCKED.
 
-↓
+Do not redesign.
+
+Only modify if explicitly instructed.
+
+---
+
+# NEXT IMPLEMENTATION ORDER
+
+Continue implementing the remaining sections of the Habits module in this order.
+
+## 1. All Habits
+
+Status:
+Pending
+
+Purpose:
+
+Display every habit created by the user.
+
+Future features:
+
+- Search
+- Filters
+- Categories
+- Sorting
+- Bulk actions
+- Statistics
+- Dynamic data
+
+---
+
+## 2. Calendar
+
+Status:
+Pending
+
+Purpose:
+
+Calendar-based habit tracking.
+
+Future features:
+
+- Daily completion
+- Monthly overview
+- Heatmap integration
+- Habit history
+- Dynamic calendar events
+
+---
+
+## 3. Achievements
+
+Status:
+Pending
+
+Purpose:
+
+Display milestones earned by the user.
+
+Future features:
+
+- XP rewards
+- Streak rewards
+- Locked achievements
+- Progress tracking
+- Dynamic unlocks
+
+---
+
+## 4. Notes
+
+Status:
+Pending
+
+Purpose:
+
+Personal notes related to habits.
+
+Future features:
+
+- Rich text
+- Search
+- Categories
+- Pinning
+- Dynamic storage
+
+---
+
+## 5. Settings
+
+Status:
+Pending
+
+Subsections:
+
+- Profile
+- Appearance
+- Preferences
+- Notifications
+- About
+
+Future features:
+
+- User account
+- Theme preferences
+- Reminder settings
+- Application configuration
+
+---
+
+# AFTER HABITS MODULE
+
+Once the Habits module is fully completed, development proceeds to:
+
+## Goals Module
+
+Status:
+Not Started
+
+---
+
+## Expenses Module
+
+Status:
+Not Started
+
+---
+
+# FUTURE PHASES
+
+After all UI is completed:
+
+## Responsive Design
+
+Implement responsive layouts for:
+
+- Large Desktop
+- Laptop
+- Tablet
+- Mobile
+
+Desktop remains the design baseline.
+
+---
+
+## Backend Integration
+
+Replace placeholder data with real data.
+
+Integrations may include:
+
+- Authentication
+- Database
+- Habit CRUD
+- Goals CRUD
+- Expenses CRUD
+- Analytics
+- Notifications
+
+---
+
+## Animations
+
+Refine:
+
+- Page transitions
+- Component transitions
+- Loading states
+- Micro interactions
+
+---
+
+## Performance Optimization
+
+- Code splitting
+- Lazy loading
+- Memoization
+- Bundle optimization
+- Lighthouse improvements
+
+---
+
+# IMPLEMENTATION RULES
+
+Each new section follows the same workflow.
+
+Step 1
+
+Implement the section according to the approved reference.
+
+Step 2
+
+Match layout.
+
+Step 3
+
+Match spacing.
+
+Step 4
+
+Match proportions.
+
+Step 5
+
+Match glassmorphism.
+
+Step 6
+
+Match glow.
+
+Step 7
+
+Refine until visually identical.
+
+Step 8
+
+Optimize for the primary desktop viewport at 100% browser zoom.
+
+Step 9
+
+Lock the section.
+
+Proceed to the next section only after the current one is finalized.
+
+---
+
+# PRIMARY DESKTOP BASELINE
+
+Until the full application is completed:
+
+Develop for the primary desktop viewport.
+
+The application should look visually correct at:
+
+- Browser Zoom: 100%
+
+Responsive behavior will be implemented only after all desktop sections are completed.
+
+---
+
+# CURRENT DEVELOPMENT PHASE
+
+Current Phase:
+
+Habits Module
+
+Current Task:
+
+Implement the **All Habits** section.
+
+Next:
 
 Calendar
 
-↓
-
 Achievements
-
-↓
 
 Notes
 
-↓
-
 Settings
 
-Goals
-
-(To be implemented)
-
-Expenses
-
-(To be implemented)
-
-=========================================================
-SETTINGS
-=========================================================
-
-Settings contains
-
-• Profile
-
-• Appearance
-
-• Notifications
-
-• Preferences
-
-• About
-
-Each page is independent.
-
-Only one settings page is visible at a time.
-
-=========================================================
-PROJECT STRUCTURE
-=========================================================
-
-Landing Page
-
-src/components/LandingPage/
-
-Habits
-
-src/components/Habits/
-
-Goals
-
-src/components/Goals/
-
-Expenses
-
-src/components/Expenses/
-
-Reusable UI
-
-src/components/Shared/
-
-Design References
-
-src/assets/
-
-Never place components into incorrect folders.
-
-=========================================================
-WORKFLOW
-=========================================================
-
-Implement only ONE section at a time.
-
-Never continue implementing additional sections.
-
-Never modify completed sections unless explicitly instructed.
-
-Each approved section becomes locked.
-
-=========================================================
-DESIGN REQUIREMENTS
-=========================================================
-
-Preserve
-
-• Layout
-• Visual hierarchy
-• Typography
-• Spacing
-• Glassmorphism
-• Gradients
-• Glow
-• Shadows
-• Border Radius
-• Component Positions
-• Colors
-• Premium Aesthetic
-
-=========================================================
-TECH STACK
-=========================================================
-
-Use only
-
-• React
-
-• TypeScript
-
-• Tailwind CSS
-
-• Framer Motion
-
-• Lucide React
-
-Do not introduce additional libraries unless requested.
-
-=========================================================
-CUSTOM ASSETS
-=========================================================
-
-Always use provided assets.
-
-Never regenerate approved illustrations.
-
-Never replace custom assets.
-
-When reference images are provided,
-
-recreate them as faithfully as possible.
-
-=========================================================
-IMPLEMENTATION RULES
-=========================================================
-
-Do not invent
-
-• New layouts
-• New spacing
-• New typography
-• New color palettes
-• New animations
-
-If an effect cannot be recreated perfectly,
-
-match the overall appearance as closely as possible.
-
-=========================================================
-FINAL GOAL
-=========================================================
-
-Every completed section should be visually indistinguishable from its approved reference image while maintaining a clean, modular and scalable React architecture.
+After completing these sections, the Habits module will be considered complete and locked.

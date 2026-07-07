@@ -89,7 +89,7 @@ export default function Footer() {
       className="relative w-full overflow-hidden"
       style={{
         background: '#000000',
-        paddingTop: 160,
+        paddingTop: 100,
         paddingBottom: 40,
         zIndex: 10,
       }}
@@ -317,6 +317,7 @@ export default function Footer() {
                           justifyContent: 'center',
                           border: '1px solid rgba(255,255,255,0.1)',
                           backdropFilter: 'blur(10px)',
+                          flexShrink: 0,
                         }}
                       >
                         <motion.div

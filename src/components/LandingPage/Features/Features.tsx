@@ -579,8 +579,8 @@ export default function Features() {
       className="relative overflow-hidden"
       style={{
         background: '#000000',
-        paddingTop: 120,
-        paddingBottom: 120,
+        paddingTop: 80,
+        paddingBottom: 80,
         zIndex: 10,
       }}
     >
@@ -597,7 +597,7 @@ export default function Features() {
           alt=""
           aria-hidden="true"
           style={{
-            height: '140%',
+            height: '110%',
             objectFit: 'contain',
             mixBlendMode: 'lighten',
             transform: 'translateX(10%) translateY(-2%)',
@@ -666,7 +666,7 @@ export default function Features() {
         }}
       >
         {/* Badge */}
-        <Badge delay={0} style={{ marginBottom: 32 }}>
+        <Badge delay={0} style={{ marginBottom: 5 }}>
           FOCUS TODAY. GROW TOMORROW.
         </Badge>
 
@@ -682,11 +682,12 @@ export default function Features() {
           <h2
             className="font-display"
             style={{
-              fontSize: 'clamp(40px, 5vw, 72px)',
+              fontSize: 'clamp(72px, 3.5vw, 48px)',
               fontWeight: 400,
-              lineHeight: 1.1,
-              letterSpacing: '-0.03em',
-              color: '#ffffff',
+              lineHeight: 1.15,
+              letterSpacing: '-0.02em',
+              color: 'rgba(255,255,255,0.9)',
+              marginBottom: 20,
             }}
           >
             Your journey.

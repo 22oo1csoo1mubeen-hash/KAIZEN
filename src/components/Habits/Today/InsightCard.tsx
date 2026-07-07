@@ -14,23 +14,23 @@ interface Insight {
 
 const insights: Insight[] = [
   {
-    icon: <Flame size={16} style={{ color: '#4CAF50' }} />,
-    iconBg: 'rgba(76,175,80,0.12)',
+    icon: <Flame size={18} style={{ color: '#FF9800', filter: 'drop-shadow(0 0 6px rgba(255,152,0,0.6))' }} />,
+    iconBg: 'rgba(255,152,0,0.1)',
     text: "You're most consistent in the mornings. Keep it up!",
   },
   {
-    icon: <TrendingUp size={16} style={{ color: '#4CAF50' }} />,
-    iconBg: 'rgba(76,175,80,0.12)',
+    icon: <TrendingUp size={18} style={{ color: '#4CAF50', filter: 'drop-shadow(0 0 6px rgba(76,175,80,0.6))' }} />,
+    iconBg: 'rgba(76,175,80,0.1)',
     text: 'Your completion rate is 12% higher than last week. Amazing progress!',
   },
   {
-    icon: <Moon size={16} style={{ color: '#8B8BFF' }} />,
-    iconBg: 'rgba(139,139,255,0.12)',
+    icon: <Moon size={18} style={{ color: '#8B8BFF', filter: 'drop-shadow(0 0 6px rgba(139,139,255,0.6))' }} />,
+    iconBg: 'rgba(139,139,255,0.1)',
     text: 'Evening habits are missed most. Try setting reminders.',
   },
   {
-    icon: <Star size={16} style={{ color: '#E5C158' }} />,
-    iconBg: 'rgba(229,193,88,0.12)',
+    icon: <Star size={18} style={{ color: '#E5C158', filter: 'drop-shadow(0 0 6px rgba(229,193,88,0.6))' }} />,
+    iconBg: 'rgba(229,193,88,0.1)',
     text: 'Friday is your strongest day. 5 habits completed on average.',
   },
 ];
@@ -51,8 +51,11 @@ export default function InsightCard() {
         backdropFilter: 'blur(24px)',
         WebkitBackdropFilter: 'blur(24px)',
         border: '1px solid rgba(255,255,255,0.06)',
-        boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.05), 0 20px 40px rgba(0,0,0,0.5)',
-        padding: '20px 24px',
+        boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.08), inset 0 0 20px rgba(255,255,255,0.02), 0 20px 40px rgba(0,0,0,0.4)',
+        padding: '12px 16px',
+        flex: 1,
+        display: 'flex',
+        flexDirection: 'column',
       }}
     >
       {/* Header */}
@@ -89,26 +92,27 @@ export default function InsightCard() {
         </span>
       </div>
 
-      {/* 4-Column Grid */}
+      {/* 2x2 Grid */}
       <div
         style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(4, 1fr)',
-          gap: 16,
+          gridTemplateColumns: 'repeat(2, 1fr)',
+          gap: 12,
+          flex: 1,
         }}
       >
         {insights.map((insight, i) => (
           <div
             key={i}
             style={{
-              padding: '16px',
+              padding: '12px',
               borderRadius: 16,
               background: 'rgba(15,15,15,0.6)',
               border: '1px solid rgba(255,255,255,0.04)',
               boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.02), 0 10px 20px rgba(0,0,0,0.2)',
               display: 'flex',
-              flexDirection: 'column',
-              gap: 12,
+              flexDirection: 'row',
+              gap: 16,
               alignItems: 'flex-start',
               transition: 'all 0.2s',
               cursor: 'pointer',

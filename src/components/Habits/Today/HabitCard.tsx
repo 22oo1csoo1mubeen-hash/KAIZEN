@@ -15,6 +15,7 @@ export interface Habit {
   completed: boolean;
   icon: string;
   color: string;
+  completionPercentage?: number;
 }
 
 interface HabitCardProps {
@@ -35,28 +36,28 @@ export default function HabitCard({ habit, index }: HabitCardProps) {
       style={{
         display: 'flex',
         alignItems: 'center',
-        padding: '16px 24px',
+        padding: '10px 16px',
         borderBottom: '1px solid rgba(255,255,255,0.03)',
-        background: isHovered ? 'rgba(255,255,255,0.02)' : 'transparent',
-        transition: 'all 0.2s ease',
+        background: isHovered ? 'linear-gradient(90deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.01) 100%)' : 'transparent',
+        transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
         cursor: 'default',
-        borderRadius: isHovered ? 12 : 0,
+        borderRadius: isHovered ? 16 : 0,
         margin: '0 8px',
       }}
     >
       {/* Icon */}
       <div
         style={{
-          width: 48,
-          height: 48,
-          borderRadius: 14,
-          background: 'rgba(255,255,255,0.03)',
-          border: '1px solid rgba(255,255,255,0.06)',
+          width: 32,
+          height: 32,
+          borderRadius: 10,
+          background: 'rgba(76,175,80,0.05)',
+          border: '1px solid rgba(76,175,80,0.15)',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          fontSize: 22,
-          marginRight: 20,
+          fontSize: 16,
+          marginRight: 12,
           boxShadow: isHovered ? '0 8px 20px rgba(0,0,0,0.2)' : 'none',
           transition: 'all 0.2s',
         }}
@@ -66,10 +67,10 @@ export default function HabitCard({ habit, index }: HabitCardProps) {
 
       {/* Info */}
       <div style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: 4 }}>
-        <span style={{ fontSize: 16, fontWeight: 600, color: '#ffffff' }}>
+        <span style={{ fontSize: 15, fontWeight: 600, color: '#ffffff' }}>
           {habit.name}
         </span>
-        <span style={{ fontSize: 13, color: 'rgba(255,255,255,0.4)' }}>
+        <span style={{ fontSize: 12, color: 'rgba(255,255,255,0.4)' }}>
           {habit.category} • {habit.time}
         </span>
       </div>
@@ -80,20 +81,20 @@ export default function HabitCard({ habit, index }: HabitCardProps) {
           display: 'flex',
           alignItems: 'center',
           gap: 6,
-          marginRight: 32,
+          marginRight: 24,
         }}
       >
         <Flame
           size={16}
           style={{
-            color: '#4CAF50',
-            filter: 'drop-shadow(0 0 6px rgba(76,175,80,0.6))',
+            color: '#FF9800',
+            filter: 'drop-shadow(0 0 6px rgba(255,152,0,0.6))',
           }}
         />
-        <span style={{ fontSize: 14, fontWeight: 600, color: '#4CAF50' }}>
+        <span style={{ fontSize: 13, fontWeight: 600, color: '#ffffff' }}>
           {habit.streak}
         </span>
-        <span style={{ fontSize: 13, color: 'rgba(255,255,255,0.4)' }}>
+        <span style={{ fontSize: 12, color: 'rgba(255,255,255,0.4)' }}>
           day streak
         </span>
       </div>
@@ -104,23 +105,23 @@ export default function HabitCard({ habit, index }: HabitCardProps) {
           display: 'flex',
           alignItems: 'center',
           gap: 8,
-          padding: '10px 20px',
-          borderRadius: 12,
+          padding: '10px 24px',
+          borderRadius: 24,
           border: habit.completed
-            ? '1px solid rgba(76,175,80,0.3)'
+            ? '1px solid rgba(76,175,80,0.4)'
             : '1px solid rgba(255,255,255,0.1)',
           background: habit.completed
-            ? 'rgba(76,175,80,0.1)'
+            ? 'rgba(76,175,80,0.12)'
             : 'rgba(255,255,255,0.02)',
           color: habit.completed ? '#4CAF50' : 'rgba(255,255,255,0.6)',
-          fontSize: 14,
+          fontSize: 13,
           fontWeight: 500,
           cursor: 'pointer',
           transition: 'all 0.2s',
-          minWidth: 140,
+          minWidth: 120,
           justifyContent: 'center',
           ...(habit.completed && {
-            boxShadow: '0 0 15px rgba(76,175,80,0.1), inset 0 1px 1px rgba(255,255,255,0.1)',
+            boxShadow: '0 0 15px rgba(76,175,80,0.15), inset 0 1px 1px rgba(255,255,255,0.15)',
           }),
         }}
         onMouseEnter={(e) => {
@@ -139,7 +140,7 @@ export default function HabitCard({ habit, index }: HabitCardProps) {
         }}
       >
         <CheckCircle2
-          size={18}
+          size={16}
           style={{
             ...(habit.completed && {
               filter: 'drop-shadow(0 0 4px rgba(76,175,80,0.5))',

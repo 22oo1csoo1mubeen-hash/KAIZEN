@@ -8,6 +8,7 @@ import {
   CalendarCheck,
 } from 'lucide-react';
 import logo from '../../../assets/LandingPage/Footer/Logo.png';
+import iconsBg from '../../../assets/Habits/Today/icons.png';
 
 /* =========================================================
    Sidebar Navigation Items
@@ -28,34 +29,53 @@ const navItems = [
 
 interface SidebarProps {
   activeItem?: string;
+  onItemClick?: (id: string) => void;
 }
 
-export default function Sidebar({ activeItem = 'today' }: SidebarProps) {
+export default function Sidebar({ activeItem = 'today', onItemClick }: SidebarProps) {
   return (
     <motion.aside
       initial={{ opacity: 0, x: -20 }}
       animate={{ opacity: 1, x: 0 }}
       transition={{ duration: 0.6, ease: [0.25, 0.4, 0.25, 1] }}
       style={{
-        width: 240,
+        width: 180,
         height: '100vh',
         display: 'flex',
         flexDirection: 'column',
-        padding: '32px 24px',
-        borderRight: '1px solid rgba(255,255,255,0.06)',
-        background: 'rgba(10,10,10,0.4)',
-        backdropFilter: 'blur(20px)',
-        WebkitBackdropFilter: 'blur(20px)',
+        padding: '20px 12px',
+        borderRight: '1px solid rgba(76,175,80,0.12)',
+        background: 'rgba(20,20,20,0.4)',
+        backdropFilter: 'blur(24px)',
+        WebkitBackdropFilter: 'blur(24px)',
         flexShrink: 0,
         position: 'sticky',
         top: 0,
         alignSelf: 'flex-start',
+        boxShadow: '2px 0 40px rgba(0,0,0,0.6), inset -1px 0 0 rgba(76,175,80,0.08)',
       }}
     >
+      {/* Background Icons */}
+      <div
+        style={{
+          position: 'absolute',
+          inset: 0,
+          backgroundImage: `url(${iconsBg})`,
+          backgroundSize: '1000px',
+          backgroundRepeat: 'repeat',
+          opacity: 0.04,
+          pointerEvents: 'none',
+          zIndex: 0,
+          filter: 'blur(10px) drop-shadow(0 0 10px rgba(76, 175, 80, 0.25)) drop-shadow(0 0 3px rgba(255, 255, 255, 0.1))',
+        }}
+      />
+
       {/* Logo */}
       <div
         style={{
           display: 'flex',
+          position: 'relative',
+          zIndex: 1,
           alignItems: 'center',
           gap: 12,
           marginBottom: 48,
@@ -63,24 +83,27 @@ export default function Sidebar({ activeItem = 'today' }: SidebarProps) {
         }}
       >
         <img
-          src={logo}
+          src="/Title.png"
           alt="Kaizen"
           style={{
-            width: 36,
-            height: 36,
-            borderRadius: 8,
-            objectFit: 'cover',
+            height: 24,
+            objectFit: 'contain',
+            filter: 'drop-shadow(0 0 10px rgba(76,175,80,0.3))',
           }}
         />
         <span
           style={{
-            fontSize: 20,
+            fontSize: 16,
             fontWeight: 700,
             color: '#ffffff',
             letterSpacing: '0.05em',
+            borderLeft: '1px solid rgba(255,255,255,0.2)',
+            paddingLeft: 12,
+            marginLeft: 2,
+            textTransform: 'uppercase',
           }}
         >
-          KAIZEN
+          HABITS
         </span>
       </div>
 
@@ -88,9 +111,10 @@ export default function Sidebar({ activeItem = 'today' }: SidebarProps) {
       <nav
         style={{
           display: 'flex',
+          position: 'relative',
+          zIndex: 1,
           flexDirection: 'column',
           gap: 8,
-          flex: 1,
         }}
       >
         {navItems.map((item) => {
@@ -100,57 +124,68 @@ export default function Sidebar({ activeItem = 'today' }: SidebarProps) {
           return (
             <button
               key={item.id}
+              onClick={() => onItemClick?.(item.id)}
               style={{
                 display: 'flex',
                 alignItems: 'center',
-                gap: 14,
-                padding: '12px 16px',
+                gap: 10,
+                padding: '8px 10px',
                 borderRadius: 12,
-                border: 'none',
+                border: isActive ? '1px solid rgba(76,175,80,0.5)' : '1px solid transparent',
                 cursor: 'pointer',
-                fontSize: 15,
-                fontWeight: isActive ? 500 : 400,
-                color: isActive ? '#ffffff' : 'rgba(255,255,255,0.5)',
+                fontSize: 13,
+                fontWeight: isActive ? 600 : 400,
+                color: isActive ? '#ffffff' : 'rgba(255,255,255,0.45)',
                 background: isActive
-                  ? 'rgba(76,175,80,0.12)'
+                  ? 'linear-gradient(135deg, rgba(76,175,80,0.22) 0%, rgba(46,125,50,0.18) 100%)'
                   : 'transparent',
-                transition: 'all 0.2s',
+                transition: 'all 0.25s ease',
                 width: '100%',
                 textAlign: 'left',
+                position: 'relative',
                 ...(isActive && {
-                  border: '1px solid rgba(76,175,80,0.25)',
-                  boxShadow: '0 0 15px rgba(76,175,80,0.1), inset 0 1px 1px rgba(255,255,255,0.05)',
-                }),
-                ...(!isActive && {
-                  border: '1px solid transparent',
+                  boxShadow: '0 0 24px rgba(76,175,80,0.25), inset 0 1px 0 rgba(255,255,255,0.15), 0 4px 16px rgba(0,0,0,0.4)',
                 }),
               }}
               onMouseEnter={(e) => {
                 if (!isActive) {
-                  (e.currentTarget as HTMLElement).style.background =
-                    'rgba(255,255,255,0.03)';
-                  (e.currentTarget as HTMLElement).style.color =
-                    'rgba(255,255,255,0.7)';
+                  (e.currentTarget as HTMLElement).style.background = 'rgba(255,255,255,0.04)';
+                  (e.currentTarget as HTMLElement).style.color = 'rgba(255,255,255,0.7)';
+                  (e.currentTarget as HTMLElement).style.borderColor = 'rgba(255,255,255,0.06)';
                 }
               }}
               onMouseLeave={(e) => {
                 if (!isActive) {
-                  (e.currentTarget as HTMLElement).style.background =
-                    'transparent';
-                  (e.currentTarget as HTMLElement).style.color =
-                    'rgba(255,255,255,0.5)';
+                  (e.currentTarget as HTMLElement).style.background = 'transparent';
+                  (e.currentTarget as HTMLElement).style.color = 'rgba(255,255,255,0.45)';
+                  (e.currentTarget as HTMLElement).style.borderColor = 'transparent';
                 }
               }}
             >
-              <Icon
-                size={20}
-                style={{
-                  color: isActive ? '#4CAF50' : 'rgba(255,255,255,0.4)',
-                  ...(isActive && {
-                    filter: 'drop-shadow(0 0 6px rgba(76,175,80,0.4))',
-                  }),
-                }}
-              />
+
+              <div style={{
+                width: 24,
+                height: 24,
+                borderRadius: 8,
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                background: isActive ? 'rgba(76,175,80,0.18)' : 'rgba(255,255,255,0.04)',
+                border: isActive ? '1px solid rgba(76,175,80,0.3)' : '1px solid rgba(255,255,255,0.06)',
+                flexShrink: 0,
+                transition: 'all 0.25s ease',
+              }}>
+                <Icon
+                  size={14}
+                  style={{
+                    color: isActive ? '#4CAF50' : 'rgba(255,255,255,0.35)',
+                    ...(isActive && {
+                      filter: 'drop-shadow(0 0 8px rgba(76,175,80,0.7)) drop-shadow(0 0 4px rgba(76,175,80,0.4))',
+                    }),
+                    transition: 'all 0.25s ease',
+                  }}
+                />
+              </div>
               {item.label}
             </button>
           );
@@ -160,21 +195,23 @@ export default function Sidebar({ activeItem = 'today' }: SidebarProps) {
       {/* Motivational Quote Card */}
       <div
         style={{
-          marginTop: 'auto',
-          padding: '24px 20px',
+          marginTop: 16,
+          position: 'relative',
+          zIndex: 1,
+          padding: '16px 16px',
           borderRadius: 16,
           background: 'rgba(20,20,20,0.4)',
-          border: '1px solid rgba(255,255,255,0.06)',
-          boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.02)',
+          border: '1px solid rgba(76,175,80,0.3)',
+          boxShadow: '0 0 15px rgba(76,175,80,0.2), inset 0 1px 0 rgba(255,255,255,0.02)',
         }}
       >
         <div
           style={{
             fontSize: 32,
             fontWeight: 700,
-            color: 'rgba(76,175,80,0.3)',
+            color: '#4CAF50',
             lineHeight: 1,
-            marginBottom: 12,
+            marginBottom: 8,
             fontFamily: 'Georgia, serif',
           }}
         >
@@ -182,18 +219,18 @@ export default function Sidebar({ activeItem = 'today' }: SidebarProps) {
         </div>
         <p
           style={{
-            fontSize: 13,
-            lineHeight: 1.6,
+            fontSize: 12,
+            lineHeight: 1.5,
             color: 'rgba(255,255,255,0.55)',
             margin: 0,
-            marginBottom: 16,
+            marginBottom: 12,
           }}
         >
           Discipline is the bridge between goals and accomplishment.
         </p>
         <p
           style={{
-            fontSize: 12,
+            fontSize: 11,
             color: 'rgba(76,175,80,0.8)',
             margin: 0,
             fontWeight: 500,

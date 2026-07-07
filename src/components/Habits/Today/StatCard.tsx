@@ -15,6 +15,7 @@ interface StatCardProps {
   leftElement?: ReactNode;
   delay?: number;
   flex?: number;
+  containerSize?: number;
 }
 
 export default function StatCard({
@@ -27,6 +28,7 @@ export default function StatCard({
   leftElement,
   delay = 0,
   flex = 1,
+  containerSize = 48,
 }: StatCardProps) {
   return (
     <motion.div
@@ -37,15 +39,16 @@ export default function StatCard({
         flex,
         minWidth: 160,
         borderRadius: 20,
-        background: 'rgba(15,15,15,0.6)',
+        background: 'rgba(20,20,20,0.4)',
         backdropFilter: 'blur(24px)',
         WebkitBackdropFilter: 'blur(24px)',
-        border: '1px solid rgba(255,255,255,0.04)',
-        boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.03), 0 10px 30px rgba(0,0,0,0.3)',
-        padding: '24px',
+        border: '1px solid rgba(255,255,255,0.06)',
+        boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.08), inset 0 0 20px rgba(255,255,255,0.02), 0 20px 40px rgba(0,0,0,0.4)',
+        padding: '16px 20px',
         display: 'flex',
         alignItems: 'center',
-        gap: 20,
+        gap: 16,
+        flex: 1,
       }}
     >
       {/* Left Area: Icon or Progress Ring */}
@@ -55,9 +58,11 @@ export default function StatCard({
         ) : icon ? (
           <div
             style={{
-              width: 52,
-              height: 52,
-              borderRadius: 16,
+              width: containerSize,
+              height: containerSize,
+              minWidth: containerSize,
+              minHeight: containerSize,
+              borderRadius: 12,
               background: iconBgColor,
               border: `1px solid ${iconBorderColor}`,
               display: 'flex',
@@ -80,9 +85,9 @@ export default function StatCard({
         <div style={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
           <span
             style={{
-              fontSize: 14,
-              fontWeight: 500,
-              color: 'rgba(255,255,255,0.45)',
+              fontSize: 13,
+              fontWeight: 600,
+              color: 'rgba(255,255,255,0.5)',
               lineHeight: 1.3,
             }}
           >
@@ -91,8 +96,8 @@ export default function StatCard({
           {subtitle && (
             <span
               style={{
-                fontSize: 13,
-                fontWeight: 500,
+                fontSize: 12,
+                fontWeight: 600,
                 color: '#4CAF50',
                 lineHeight: 1.3,
               }}
