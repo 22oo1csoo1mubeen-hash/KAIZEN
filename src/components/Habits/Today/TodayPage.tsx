@@ -15,6 +15,8 @@ import { useState } from 'react';
 import { dummyHabits } from '../data';
 import AllHabitsContent from '../AllHabits/AllHabitsContent';
 import CalendarContent from '../Calendar/CalendarContent';
+import NotesContent from '../Notes/NotesContent';
+
 
 /* =========================================================
    Today Page Component
@@ -82,6 +84,7 @@ export default function TodayPage() {
             padding: '12px 24px 12px',
             display: 'flex',
             gap: 16,
+            minWidth: 0,
           }}
         >
           {/* Ambient Lighting Background */}
@@ -308,6 +311,12 @@ export default function TodayPage() {
           {activeTab === 'calendar' && (
             <CalendarContent />
           )}
+
+          {activeTab === 'notes' && (
+            <NotesContent />
+          )}
+
+
         </div>
       </div>
     </div>
